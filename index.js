@@ -14,7 +14,7 @@ const displayRounds = document.querySelector(".rounds-left");
 
 let POMODOROTIME = pomodoroTimeValue;
 let RESTTIME = restTimeValue;
-let roundsLeft = roundsNumberValue;
+let ROUNDSLEFT = roundsNumberValue;
 
 const startButton = document.querySelector(".start-btn");
 
@@ -32,7 +32,7 @@ restTime.addEventListener("change", (e) => {
 });
 roundsNumber.addEventListener("change", (e) => {
   roundsNumberValue = e.target.value;
-  roundsLeft = roundsNumberValue
+  ROUNDSLEFT = roundsNumberValue
   console.log(roundsNumberValue);
 });
 
@@ -47,7 +47,6 @@ function pomodoroStart() {
       let time = "";
       if (pomodoroTimeValue <= 1) {
         clrInterval(setTime);
-        // restStart()
         res();
       }
       pomodoroTimeValue--;
@@ -91,30 +90,31 @@ function restStart() {
 }
 
 function reset(){
+  // If we want to convert a sync function to async function then, it has to return a promise.
+  // The fetch() return promise by default so we don't have to.
+  // However in functions which are synchronous by default we have to return the promise explicitly like below👇
   return new Promise((res, req)=>{
     console.log("Inside Rounds: After Await");
-    console.log('Rounds Left: '+ roundsLeft);
-    roundsLeft--;
-    displayRounds.innerHTML = roundsLeft;
+    console.log('Rounds Left: '+ ROUNDSLEFT);
+    ROUNDSLEFT--;
+    displayRounds.innerHTML = ROUNDSLEFT;
     console.log('Pomodoro time:' + POMODOROTIME);
     pomodoroTimeValue = POMODOROTIME;
     restTimeValue = RESTTIME;
+    // When we return promise explicitly, we also have to resolve/reject it explicilty by calling the resolve/reject function.
+    // In this case res() to resolve and rej() to reject the promise. 
+    // If the promise will not be resolved/rejected, it'll remain in the pending state 
+    // and any code after this function call will not run.
     res()
   })
 }
 
-const xyz = async () => {
+const mainFunction = async () => {
   for (let i = 1; i <= roundsNumberValue; i++) {
     console.log("Inside Rounds");
     await pomodoroStart()
-      .then( async () => {
-        console.log("Rest Start");
-        await restStart().then(async()=>{
-          await reset()
-          console.log('Inside reset then()');
-        })
-        
-      })
+    await restStart()
+    await reset()
   }
 };
 
@@ -133,7 +133,7 @@ const startHandler = () => {
   }`;
   displayRounds.innerHTML = roundsNumberValue;
   // pomodoroStart()
-  xyz();
+  mainFunction();
   // () => {
   //   console.log('Inside pomodoro callback');
   //   if(roundsNumberValue>1){
