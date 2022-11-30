@@ -1,12 +1,171 @@
-*{
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap");
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  scroll-behavior: smooth;
 }
 
-.display{
+a{
+  display: inline-block;
+  text-decoration: none;
+}
+
+:root {
+  font-size: 10px;
+  --body-bg-light-color: #f2f1ed;
+}
+
+body {
+  font-size: 2.4rem;
+  background-color: var(--body-bg-light-color);
+  color: #01050a;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  height: 80px;
+  width: 80%;
+  /* background-color: #f3df8fc4; */
+  color: #01050a;
+}
+
+header .logo {
+  font-weight: 600;
+  font-size: 3.6rem;
+  letter-spacing: -2px;
+  word-spacing: -4px;
+}
+
+header .logo span {
+  color: #de4848;
+}
+
+.cta-btn {
+  border: none;
+  outline: none;
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 1rem 3rem;
+  border-radius: 2.4rem;
+  background-color: #de4848;
+  color: var(--body-bg-light-color);
+  cursor: pointer;
+}
+.cta-btn:hover {
+  background-color: #f05555;
+  transition: opacity 250ms ease-in-out;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+main .hero {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+  /* background-color: #abababc4; */
+  height: 75vh;
+  width: 70%;
+}
+
+main .hero .heading h1 {
+  font-size: 8rem;
+}
+main .hero .heading p {
+  color: #191919;
+  font-size: 4.8rem;
+}
+
+main .hero .heading p span {
+  font-weight: 700;
+  color: #de4848;
+}
+
+main .hero .timer {
+  text-align: center;
+  font-size: 6rem;
+}
+main .hero .timer .cta-btn {
+  width: 80%;
+  font-size: 2.4rem;
+  border-radius: 0.6rem;
+}
+
+/* Down Arrow */
+main .arrow-container{
+  margin-top: 8rem;
+  padding: 1.5rem 0;
+}
+main .arrow-container .arrows {
+	width: 60px;
+	height: 72px;
+}
+
+.arrows path {
+	stroke: #01050a;
+	fill: transparent;
+	stroke-width: 1.5px;	
+	animation: arrow 1.5s infinite;
+	-webkit-animation: arrow 2s infinite; 
+}
+
+@keyframes arrow
+{
+0% {opacity:0}
+40% {opacity:0.8}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+@-webkit-keyframes arrow /*Safari and Chrome*/
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+.arrows path.a1 {
+	animation-delay:-1s;
+	-webkit-animation-delay:-1s; /* Safari Chrome */
+}
+
+.arrows path.a2 {
+	animation-delay:-0.5s;
+	-webkit-animation-delay:-0.5s; /* Safari  Chrome */
+}
+
+.arrows path.a3 {	
+	animation-delay:0s;
+	-webkit-animation-delay:0s; /* Safari Chrome */
+}
+
+main #function{
+  margin: 10rem 0;
+}
+#function .form{
+  background-color: rgb(255, 222, 150);
+  padding: 2rem;
+}
+.display {
   display: none;
 }
-.display.active{
+.display.active {
   display: block;
 }
