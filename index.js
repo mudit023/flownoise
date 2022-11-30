@@ -1,5 +1,3 @@
-// TO-DO
-//  1. Add rounds functionality
 
 const pomodoroTime = document.querySelector("#pomodoro-time");
 let pomodoroTimeValue = pomodoroTime.value * 60;
@@ -22,17 +20,20 @@ pomodoroTime.addEventListener("change", (e) => {
   pomodoroTimeValue = e.target.value;
   pomodoroTimeValue = pomodoroTimeValue * 60;
   POMODOROTIME = pomodoroTimeValue
+  // For Testing
   console.log(pomodoroTimeValue);
 });
 restTime.addEventListener("change", (e) => {
   restTimeValue = e.target.value;
   restTimeValue = restTimeValue * 60;
   RESTTIME = restTimeValue
+  // For Testing
   console.log(restTimeValue);
 });
 roundsNumber.addEventListener("change", (e) => {
   roundsNumberValue = e.target.value;
   ROUNDSLEFT = roundsNumberValue
+  // For Testing
   console.log(roundsNumberValue);
 });
 
@@ -42,11 +43,18 @@ let setRestTime;
 
 
 function pomodoroStart() {
+  // If we want to convert a sync function to async function then, it has to return a promise.
+  // The fetch() return promise by default so we don't have to.
+  // However in functions which are synchronous by default we have to return the promise explicitly like below👇
   return new Promise((res, rej) => {
     setTime = setInterval(() => {
       let time = "";
       if (pomodoroTimeValue <= 1) {
         clrInterval(setTime);
+    // When we return promise explicitly, we also have to resolve/reject it explicilty by calling the resolve/reject function.
+    // In this case res() to resolve and rej() to reject the promise. 
+    // If the promise will not be resolved/rejected, it'll remain in the pending state 
+    // and any code after this function call will not run.
         res();
       }
       pomodoroTimeValue--;
@@ -65,6 +73,7 @@ function pomodoroStart() {
   });
 }
 
+// Rest time functionality
 function restStart() {
   return new Promise((res, rej)=>{
     setRestTime = setInterval(() => {
@@ -89,40 +98,36 @@ function restStart() {
   })
 }
 
+// To reset the pomodoro and restStart functions and values. And to update the rounds
 function reset(){
-  // If we want to convert a sync function to async function then, it has to return a promise.
-  // The fetch() return promise by default so we don't have to.
-  // However in functions which are synchronous by default we have to return the promise explicitly like below👇
-  return new Promise((res, req)=>{
-    console.log("Inside Rounds: After Await");
+    console.log("Inside Reset: After Await");
     console.log('Rounds Left: '+ ROUNDSLEFT);
     ROUNDSLEFT--;
     displayRounds.innerHTML = ROUNDSLEFT;
     console.log('Pomodoro time:' + POMODOROTIME);
     pomodoroTimeValue = POMODOROTIME;
     restTimeValue = RESTTIME;
-    // When we return promise explicitly, we also have to resolve/reject it explicilty by calling the resolve/reject function.
-    // In this case res() to resolve and rej() to reject the promise. 
-    // If the promise will not be resolved/rejected, it'll remain in the pending state 
-    // and any code after this function call will not run.
-    res()
-  })
 }
 
+// The function that will run all the other functions
 const mainFunction = async () => {
   for (let i = 1; i <= roundsNumberValue; i++) {
-    console.log("Inside Rounds");
+    // For testing
+    console.log("Inside Main Function: Rounds");
     await pomodoroStart()
     await restStart()
-    await reset()
+    reset()
   }
 };
 
+// Function to clear pomodoro and restStart setIntervals
 function clrInterval(interval) {
   clearInterval(interval);
+  // For testing
   console.log("Inside clr interval");
 }
 
+// Start button functionality
 const startHandler = () => {
   document.querySelector(".display").classList.add("active");
   displayPomodoroTime.innerHTML = `${Math.floor(pomodoroTimeValue / 60)} : ${
@@ -132,17 +137,7 @@ const startHandler = () => {
     restTimeValue % 60
   }`;
   displayRounds.innerHTML = roundsNumberValue;
-  // pomodoroStart()
   mainFunction();
-  // () => {
-  //   console.log('Inside pomodoro callback');
-  //   if(roundsNumberValue>1){
-  //     pomodoroStart()
-  //     roundsNumberValue--
-  //     console.log('rounds: '+roundsNumberValue);
-  //     displayRounds.innerHTML = roundsNumberValue
-  //   }
-  // }
 };
 
 startButton.addEventListener("click", startHandler);
