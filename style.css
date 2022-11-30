@@ -44,7 +44,7 @@ header .logo {
   font-weight: 600;
   font-size: 3.6rem;
   letter-spacing: -2px;
-  word-spacing: -4px;
+  word-spacing: -6px;
 }
 
 header .logo span {
@@ -112,7 +112,7 @@ main .hero .timer .cta-btn {
 
 /* Down Arrow */
 main .arrow-container{
-  margin-top: 4.5rem;
+  margin-top: 4rem;
   padding: 1.5rem 0;
 }
 main .arrow-container .arrows {
