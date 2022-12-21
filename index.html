@@ -6,108 +6,50 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="timer.css">
   <title>Do It Now</title>
 </head>
 
 <body>
-  <header>
-    <div class="logo">Do It <span>Now</span></div>
-    <a class="cta-btn" href="#function">Start</a>
-  </header>
-  <main>
-    <section class="hero">
-      <div class="heading">
-        <h1>Get Things Done</h1>
-        <p>Use <span>Do It Now</span> and improve your productivty <span>10X</span></p>
-      </div>
+  <section id="function">
 
-      <div class="timer">
-        <div class="container">
-          <div class="container-segment">
-            <!-- <div class="segment-title">Hours</div> -->
-            <div class="segment">
-              <div class="flip-card" data-hours-tens>
-                <div class="top">2</div>
-                <div class="bottom">2</div>
-              </div>
-              <div class="flip-card" data-hours-ones>
-                <div class="top">4</div>
-                <div class="bottom">4</div>
-              </div>
-            </div>
-          </div>
-          <div class="container-segment">
-            <!-- <div class="segment-title">Minutes</div> -->
-            <div class="segment">
-              <div class="flip-card" data-minutes-tens>
-                <div class="top">0</div>
-                <div class="bottom">0</div>
-              </div>
-              <div class="flip-card" data-minutes-ones>
-                <div class="top">0</div>
-                <div class="bottom">0</div>
-              </div>
-            </div>
-          </div>
-          <div class="container-segment">
-            <!-- <div class="segment-title">Seconds</div> -->
-            <div class="segment">
-              <div class="flip-card" data-seconds-tens>
-                <div class="top">0</div>
-                <div class="bottom">0</div>
-              </div>
-              <div class="flip-card" data-seconds-ones>
-                <div class="top">0</div>
-                <div class="bottom">0</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a class="cta-btn" href="#function">Be Productive!</a>
+    <div class="display">
+      <div class="pomodoro-time">00:00</div>
+      <div class="rest-rounds">
+        <div class="rest-time">00:00</div>
+        <div class="rounds-left">0</div>
       </div>
-    </section>
-
-    <div class="arrow-container">
-      <svg class="arrows">
-        <path class="a1" d="M0 0 L30 32 L60 0"></path>
-        <path class="a2" d="M0 20 L30 52 L60 20"></path>
-        <path class="a3" d="M0 40 L30 72 L60 40"></path>
-      </svg>
+      <button type="button" class="reset-btn">Reset</button>
     </div>
 
-    <section id="function">
-      <div class="display">
-        <div class="pomodoro-time">00:00</div>
-        <span class="rest-time">00:00</span>
-        <span class="rounds-left">0</span>
-        <button type="button" class="reset-btn">Reset</button>
-      </div>
-      <div class="form">
-        <label for="pomodoro-time">Round Time:</label>
-        <select name="time" id="pomodoro-time">
-          <option value="25" selected>25:00</option>
-          <option value="40">40:00</option>
-          <option value="60">60:00</option>
-        </select>
-        <label for="rest-time">Rest Time:</label>
-        <select name="rest" id="rest-time">
-          <option value="5" selected>5:00</option>
-          <option value="10">10:00</option>
-          <option value="15">15:00</option>
-        </select>
-        <label for="rounds">Rounds:</label>
-        <select name="rounds" id="rounds">
-          <option value="1" selected>1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
-        <button type="button" class="start-btn">Start</button>
-      </div>
-    </section>
-  </main>
-  <script src="./timer.js"></script>
+    <p class="on-complete">Task Done</p>
+
+    <div class="form">
+     <div class="input">
+      <label for="pomodoro-time">Round Time:</label>
+      <select name="time" id="pomodoro-time">
+        <option class="select-option" value="25" selected>25:00</option>
+        <option class="select-option" value="40">40:00</option>
+        <option class="select-option" value="60">60:00</option>
+      </select>
+      <label for="rest-time">Rest Time:</label>
+      <select name="rest" id="rest-time">
+        <option class="select-option" value="5" selected>5:00</option>
+        <option class="select-option" value="10">10:00</option>
+        <option class="select-option" value="15">15:00</option>
+      </select>
+      <label for="rounds">Rounds:</label>
+      <select name="rounds" id="rounds">
+        <option class="select-option" value="1" selected>1</option>
+        <option class="select-option" value="2">2</option>
+        <option class="select-option" value="3">3</option>
+        <option class="select-option" value="4">4</option>
+      </select>
+     </div>
+      <button type="button" class="start-btn">Start</button>
+    </div>
+
+  </section>
+
   <script src="./index.js"></script>
 </body>
 
