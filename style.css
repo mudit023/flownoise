@@ -11,6 +11,7 @@
 a{
   display: inline-block;
   text-decoration: none;
+  color: inherit;
 }
 
 :root {
@@ -138,4 +139,19 @@ body{
 }
 .form.disable {
   display: none;
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
+  left: 45%;
+  margin-bottom: 5px;
+  background: linear-gradient(to top left, rgba(190, 190, 190, 0.247), rgba(255, 255, 255, 0.51));
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, .25);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, .25);
+  border-radius: 0.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
 }
