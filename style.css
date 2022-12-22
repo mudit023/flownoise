@@ -22,7 +22,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url(./Assests/spaceQuality.jpg), linear-gradient(to bottom right, rgb(1, 8, 18) 0%, rgba(74, 74, 74, 0.618) 76%, rgba(124, 124, 124, 0.39) 100%);
+  background: url(./Assests/spaceQuality.jpg), linear-gradient(to bottom right, rgba(1, 8, 18, 0.8) 0%, rgba(74, 74, 74, 0.5) 76%, rgba(124, 124, 124, 0.1) 100%);
   background-blend-mode: darken;
   background-repeat: no-repeat;
   background-size: cover;
@@ -46,33 +46,39 @@ body{
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  min-width: 480px;
+  min-width: 240px;
 }
 .display .pomodoro-time{
   text-align: center;
-  width: 320px;
+  /* width: 320px; */
+  width: 100%;
   padding: 0.2rem 2rem;
   font-size: 4.8rem;
+  font-weight: 600;
   border: 1px solid rgba(255, 255, 255, .25);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, .25);
   border-radius: 0.5rem;
 }
 .display .rest-rounds{
-  width: 320px;
+  /* width: 320px; */
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 .rest-rounds .rest-time,
 .rounds-left{
-  padding: 0.2rem 1rem;
+  padding: 0.5rem 1rem;
   border: 1px solid rgba(255, 255, 255, .25);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, .25);
   border-radius: 0.5rem;
+  font-size: 3.2rem;
 }
 .display button{
-  width: 320px;
-  padding: 0.5rem 2rem;
-  font-size: 1.6rem;
+  /* width: 320px; */
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 2.4rem;
+  letter-spacing: 0.15rem;
   font-weight: 600;
   color: aquamarine;
   background: linear-gradient(45deg, rgba(4, 41, 144, 0.646), rgba(1, 23, 64, 0.777));
@@ -99,14 +105,16 @@ body{
   height: 100%;
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, .25);
+  outline: none;
 }
 .select-option{
   background-color: rgb(189, 203, 255);
 }
 .form button{
   display: block;
-  padding: 0.5rem 2rem;
-  font-size: 1.6rem;
+  padding: 1rem 2rem;
+  font-size: 2.4rem;
+  letter-spacing: 0.15rem;
   font-weight: 600;
   color: aquamarine;
   width: 200px;

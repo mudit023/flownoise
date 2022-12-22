@@ -14,6 +14,13 @@ let RESTTIME = restTimeValue;
 let ROUNDSLEFT = roundsNumberValue;
 let resetFlag = false;
 
+// Sounds Path
+const nextRoundSound = './Assests/sounds/next-round.mp3';
+const finalRoundSound = './Assests/sounds/final-round.mp3';
+const taskDoneSound = './Assests/sounds/task-done.mp3';
+const restStartSound = './Assests/sounds/rest-start.mp3';
+const successSound = './Assests/sounds/success.mp3';
+
 const startButton = document.querySelector(".start-btn");
 const resetButton = document.querySelector(".reset-btn");
 
@@ -38,6 +45,7 @@ roundsNumber.addEventListener("change", (e) => {
   console.log(roundsNumberValue);
 });
 
+// setInterval IDs
 let setTime;
 let setRestTime;
 
@@ -49,6 +57,7 @@ function pomodoroStart() {
     setTime = setInterval(() => {
       let time = "";
       if (pomodoroTimeValue <= 1) {
+        playSound(restStartSound)
         clrInterval(setTime);
         // When we return promise explicitly, we also have to resolve/reject it explicilty by calling the resolve/reject function.
         // In this case res() to resolve and rej() to reject the promise.
@@ -87,6 +96,9 @@ function restStart() {
           clrInterval(setRestTime);
           return;
         }
+      if(restTimeValue==10 && roundsNumberValue>1){
+        notificationGenerator('Next Round in 10s, be ready!');
+      }
       restTimeValue--;
       if (restTimeValue / 60 < 10) {
         time = `0${Math.floor(restTimeValue / 60)}`;
@@ -106,23 +118,34 @@ function restStart() {
 // To reset the pomodoro and restStart functions and values. And to update the rounds
 function reset() {
   console.log("Inside Reset: After Await");
-  ROUNDSLEFT--;
-  displayRounds.innerHTML = ROUNDSLEFT;
+  roundsNumberValue--;
+  if(roundsNumberValue>1){
+    playSound(nextRoundSound);
+  } if(roundsNumberValue===1){
+    playSound(finalRoundSound);
+  }
+  displayRounds.innerHTML = roundsNumberValue;
   console.log("Pomodoro time:" + POMODOROTIME);
   pomodoroTimeValue = POMODOROTIME;
   restTimeValue = RESTTIME;
-  console.log("Rounds Left: " + ROUNDSLEFT);
+  console.log("Rounds Left: " + roundsNumberValue);
 }
 
 // The function that will run all the other functions
 const mainFunction = async () => {
-  for (let i = 1; i <= roundsNumberValue; i++) {
+  for (let i = 1; i <= ROUNDSLEFT; i++) {
     // For testing
     console.log("Inside Main Function: Rounds");
     await pomodoroStart();
     await restStart();
     reset();
   }
+  playSound(taskDoneSound);
+  notificationGenerator('You did it! You deserve a break.');
+
+  pomodoroTimeValue = POMODOROTIME;
+  restTimeValue = RESTTIME;
+  roundsNumberValue = ROUNDSLEFT;
   document.querySelector('.on-complete').classList.add('active');
   document.querySelector(".display").classList.remove("active");
   document.querySelector(".form").classList.remove("disable");
@@ -134,6 +157,28 @@ function clrInterval(interval) {
   // For testing
   console.log("Inside clr interval");
 }
+
+// Sounds
+const playSound = (soundPath) => {
+  let sound = new Audio(soundPath);
+  sound.play();
+}
+
+// *********************** Notification *******************************
+const notificationGenerator = (title) => {
+  const logo = './Assests/efficiency.png'
+  const notification = new Notification('Do It Now', { body: title, icon: logo});
+}
+
+// Reset Functionality
+const resetHandler = () => {
+  document.querySelector(".display").classList.remove("active");
+  document.querySelector(".form").classList.remove("disable");
+  resetFlag = true;
+  pomodoroTimeValue = POMODOROTIME;
+  restTimeValue = RESTTIME;
+  roundsNumberValue = ROUNDSLEFT;
+};
 
 // Start button functionality
 const startHandler = () => {
@@ -148,17 +193,13 @@ const startHandler = () => {
     restTimeValue % 60
   }`;
   displayRounds.innerHTML = roundsNumberValue;
+
+  Notification.requestPermission().then((result) => {
+    console.log(result);
+  });
   mainFunction();
 };
 
-// Reset Functionality
-const resetHandler = () => {
-  document.querySelector(".display").classList.remove("active");
-  document.querySelector(".form").classList.remove("disable");
-  resetFlag = true;
-  pomodoroTimeValue = POMODOROTIME;
-  restTimeValue = RESTTIME;
-  ROUNDSLEFT = roundsNumberValue;
-};
+
 startButton.addEventListener("click", startHandler);
 resetButton.addEventListener("click", resetHandler);
