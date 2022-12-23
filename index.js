@@ -15,11 +15,19 @@ let ROUNDSLEFT = roundsNumberValue;
 let resetFlag = false;
 
 // Sounds Path
-const nextRoundSound = './Assests/sounds/next-round.mp3';
-const finalRoundSound = './Assests/sounds/final-round.mp3';
-const taskDoneSound = './Assests/sounds/task-done.mp3';
-const restStartSound = './Assests/sounds/rest-start.mp3';
-const successSound = './Assests/sounds/success.mp3';
+const nextRoundSound = "./Assests/sounds/next-round.mp3";
+const finalRoundSound = "./Assests/sounds/final-round.mp3";
+const taskDoneSound = "./Assests/sounds/task-done.mp3";
+const restStartSound = "./Assests/sounds/rest-start.mp3";
+const successSound = "./Assests/sounds/success.mp3";
+
+const keyboardSoundPath = "./Assests/sounds/bgSounds/keyboard-white-noise.mp3";
+const windSoundPath = "./Assests/sounds/bgSounds/wind-white-noise.mp3";
+const forestSoundPath = "./Assests/sounds/bgSounds/forest-white-noise.mp3";
+const publicPlaceSoundPath =
+  "./Assests/sounds/bgSounds/public-place-white-noise.mp3";
+const underwaterSoundPath = "./Assests/sounds/bgSounds/underwater-white-noise.mp3";
+const staticSoundPath = "./Assests/sounds/bgSounds/static-white-noise.mp3";
 
 const startButton = document.querySelector(".start-btn");
 const resetButton = document.querySelector(".reset-btn");
@@ -57,17 +65,18 @@ function pomodoroStart() {
     setTime = setInterval(() => {
       let time = "";
       if (pomodoroTimeValue <= 1) {
-        playSound(restStartSound)
+        playSound(restStartSound);
         clrInterval(setTime);
         // When we return promise explicitly, we also have to resolve/reject it explicilty by calling the resolve/reject function.
         // In this case res() to resolve and rej() to reject the promise.
         // If the promise will not be resolved/rejected, it'll remain in the pending state
         // and any code after this function call will not run.
         res();
-      } if(resetFlag){
-          clrInterval(setTime);
-          return;
-        }
+      }
+      if (resetFlag) {
+        clrInterval(setTime);
+        return;
+      }
       pomodoroTimeValue--;
       if (pomodoroTimeValue / 60 < 10) {
         time = `0${Math.floor(pomodoroTimeValue / 60)}`;
@@ -92,12 +101,13 @@ function restStart() {
       if (restTimeValue <= 1) {
         clrInterval(setRestTime);
         res();
-      } if(resetFlag){
-          clrInterval(setRestTime);
-          return;
-        }
-      if(restTimeValue==10 && roundsNumberValue>1){
-        notificationGenerator('Next Round in 10s, be ready!');
+      }
+      if (resetFlag) {
+        clrInterval(setRestTime);
+        return;
+      }
+      if (restTimeValue == 10 && roundsNumberValue > 1) {
+        notificationGenerator("Next Round in 10s, be ready!");
       }
       restTimeValue--;
       if (restTimeValue / 60 < 10) {
@@ -119,9 +129,10 @@ function restStart() {
 function reset() {
   console.log("Inside Reset: After Await");
   roundsNumberValue--;
-  if(roundsNumberValue>1){
+  if (roundsNumberValue > 1) {
     playSound(nextRoundSound);
-  } if(roundsNumberValue===1){
+  }
+  if (roundsNumberValue === 1) {
     playSound(finalRoundSound);
   }
   displayRounds.innerHTML = roundsNumberValue;
@@ -141,12 +152,11 @@ const mainFunction = async () => {
     reset();
   }
   playSound(taskDoneSound);
-  notificationGenerator('You did it! You deserve a break.');
-
+  notificationGenerator("You did it! You deserve a break.");
   pomodoroTimeValue = POMODOROTIME;
   restTimeValue = RESTTIME;
   roundsNumberValue = ROUNDSLEFT;
-  document.querySelector('.on-complete').classList.add('active');
+  document.querySelector(".on-complete").classList.add("active");
   document.querySelector(".display").classList.remove("active");
   document.querySelector(".form").classList.remove("disable");
 };
@@ -158,17 +168,99 @@ function clrInterval(interval) {
   console.log("Inside clr interval");
 }
 
-// Sounds
+// ******************** Sounds ***********************
 const playSound = (soundPath) => {
   let sound = new Audio(soundPath);
   sound.play();
+};
+
+// Background Sounds
+const keyboardBtn = document.querySelector(".keyboard");
+const windBtn = document.querySelector(".wind");
+const underwaterBtn = document.querySelector(".underwater");
+const forestBtn = document.querySelector(".forest");
+const staticBtn = document.querySelector(".radio-static");
+const publicPlaceBtn = document.querySelector(".public-place");
+
+const keyboardVolumeBtn = document.querySelector("#keyboard");
+const windVolumeBtn = document.querySelector("#wind");
+const underwaterVolumeBtn = document.querySelector("#underwater");
+const forestVolumeBtn = document.querySelector("#forest");
+const staticVolumeBtn = document.querySelector("#radio-static");
+const publicPlaceVolumeBtn = document.querySelector("#public-place");
+
+const keyboardSound = new Audio(keyboardSoundPath);
+const windSound = new Audio(windSoundPath);
+const underwaterSound = new Audio(underwaterSoundPath);
+const forestSound = new Audio(forestSoundPath);
+const publicPlaceSound = new Audio(publicPlaceSoundPath);
+const staticSound = new Audio(staticSoundPath);
+
+const playPauseBgSound = (ele, audioObj) => {
+  if(audioObj.paused===true){
+    audioObj.play();
+    audioObj.volume = 0.3;
+    audioObj.loop = true;
+    ele.classList.add("active");
+    console.log('inside play');
+  } else {
+      audioObj.pause();
+      ele.classList.remove("active");
+      console.log('inside pause');
+  }
+};
+
+const chnageVolume = (ele, audioObj) =>{
+  audioObj.volume = ele.value;
 }
+
+keyboardBtn.addEventListener("click", ()=>{
+  playPauseBgSound(keyboardBtn, keyboardSound);
+});
+windBtn.addEventListener("click", ()=>{
+  playPauseBgSound(windBtn, windSound);
+});
+forestBtn.addEventListener("click", ()=>{
+  playPauseBgSound(forestBtn, forestSound);
+});
+underwaterBtn.addEventListener("click", ()=>{
+  playPauseBgSound(underwaterBtn, underwaterSound);
+});
+staticBtn.addEventListener("click", ()=>{
+  playPauseBgSound(staticBtn, staticSound);
+});
+publicPlaceBtn.addEventListener("click", ()=>{
+  playPauseBgSound(publicPlaceBtn, publicPlaceSound);
+});
+
+// Volume Controller
+keyboardVolumeBtn.addEventListener('change', ()=>{
+  chnageVolume(keyboardVolumeBtn, keyboardSound)
+})
+windVolumeBtn.addEventListener('change', ()=>{
+  chnageVolume(windVolumeBtn, windSound)
+})
+underwaterVolumeBtn.addEventListener('change', ()=>{
+  chnageVolume(underwaterVolumeBtn, underwaterSound)
+})
+forestVolumeBtn.addEventListener('change', ()=>{
+  chnageVolume(forestVolumeBtn, forestSound)
+})
+staticVolumeBtn.addEventListener('change', ()=>{
+  chnageVolume(staticVolumeBtn, staticSound)
+})
+publicPlaceVolumeBtn.addEventListener('change', ()=>{
+  chnageVolume(publicPlaceVolumeBtn, publicPlaceSound)
+})
 
 // *********************** Notification *******************************
 const notificationGenerator = (title) => {
-  const logo = './Assests/efficiency.png'
-  const notification = new Notification('Do It Now', { body: title, icon: logo});
-}
+  const logo = "./Assests/efficiency.png";
+  const notification = new Notification("Do It Now", {
+    body: title,
+    icon: logo,
+  });
+};
 
 // Reset Functionality
 const resetHandler = () => {
@@ -184,7 +276,7 @@ const resetHandler = () => {
 const startHandler = () => {
   document.querySelector(".display").classList.add("active");
   document.querySelector(".form").classList.add("disable");
-  document.querySelector('.on-complete').classList.remove('active');
+  document.querySelector(".on-complete").classList.remove("active");
   resetFlag = false;
   displayPomodoroTime.innerHTML = `${Math.floor(pomodoroTimeValue / 60)} : ${
     pomodoroTimeValue % 60
@@ -199,7 +291,6 @@ const startHandler = () => {
   });
   mainFunction();
 };
-
 
 startButton.addEventListener("click", startHandler);
 resetButton.addEventListener("click", resetHandler);

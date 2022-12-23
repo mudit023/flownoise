@@ -28,13 +28,13 @@
      <div class="input">
       <label for="pomodoro-time">Round Time:</label>
       <select name="time" id="pomodoro-time">
-        <option class="select-option" value="25" selected>25:00</option>
+        <option class="select-option" value="0.1" selected>25:00</option>
         <option class="select-option" value="40">40:00</option>
         <option class="select-option" value="60">60:00</option>
       </select>
       <label for="rest-time">Rest Time:</label>
       <select name="rest" id="rest-time">
-        <option class="select-option" value="5" selected>5:00</option>
+        <option class="select-option" value="0.3" selected>5:00</option>
         <option class="select-option" value="10">10:00</option>
         <option class="select-option" value="15">15:00</option>
       </select>
@@ -48,8 +48,46 @@
      </div>
       <button type="button" class="start-btn">Start</button>
     </div>
-
   </section>
+
+  <div class="bg-sounds">
+    <div class="bg-sound">
+      <div class="keyboard img-container">
+        <img src="./Assests/keyboard.png" alt="keyboard">
+      </div>
+      <input type="range" name="keyboard-volume" id="keyboard" min="0" max="0.9" value="0.3" step="0.1">
+    </div>
+    <div class="bg-sound">
+      <div class="wind img-container">
+        <img src="./Assests/wind.png" alt="wind">
+      </div>
+      <input type="range" name="wind-volume" id="wind" min="0" max="0.9" value="0.3" step="0.1">
+    </div>
+    <div class="bg-sound">
+      <div class="underwater img-container">
+        <img src="./Assests/diver.png" alt="underwater">
+      </div>
+      <input type="range" name="underwater-volume" id="underwater" min="0" max="0.9" value="0.3" step="0.1">
+    </div>
+    <div class="bg-sound">
+      <div class="forest img-container">
+        <img src="./Assests/forest.png" alt="forest">
+      </div>
+      <input type="range" name="forest-volume" id="forest" min="0" max="0.9" value="0.3" step="0.1">
+    </div>
+    <div class="bg-sound">
+      <div class="radio-static img-container">
+        <img src="./Assests/radio.png" alt="radio-static">
+      </div>
+      <input type="range" name="static-volume" id="radio-static" min="0" max="0.9" value="0.3" step="0.1">
+    </div>
+    <div class="bg-sound">
+      <div class="public-place img-container">
+        <img src="./Assests/opinions.png" alt="public-place">
+      </div>
+      <input type="range" name="public-volume" id="public-place" min="0" max="0.9" value="0.3" step="0.1">
+    </div>
+  </div>
   <footer>Made with⚡by <a href="https://twitter.com/muditwt">Mudit</a></footer>
   <script src="./index.js"></script>
 </body>

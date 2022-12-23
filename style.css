@@ -21,8 +21,10 @@ a{
 body{
   height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: space-evenly;
   background: url(./Assests/spaceQuality.jpg), linear-gradient(to bottom right, rgba(1, 8, 18, 0.8) 0%, rgba(74, 74, 74, 0.5) 76%, rgba(124, 124, 124, 0.1) 100%);
   background-blend-mode: darken;
   background-repeat: no-repeat;
@@ -30,15 +32,11 @@ body{
 }
 
 #function{
-  background: linear-gradient(to top left, rgba(212, 212, 212, 0.125), rgba(255, 255, 255, 0.422));
+  background: linear-gradient(to top left, rgba(190, 190, 190, 0.247), rgba(255, 255, 255, 0.51));
   backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, .25);
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, .25);
   border-radius: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   font-size: 3.2rem;
   padding: 2rem 2.5rem;
 }
@@ -141,6 +139,49 @@ body{
   display: none;
 }
 
+/* Sounds */
+.bg-sounds{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  background: linear-gradient(to top left, rgba(212, 212, 212, 0.125), rgba(255, 255, 255, 0.422));
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, .25);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, .25);
+  border-radius: 1rem;
+  padding: 2rem 2.5rem;
+}
+.bg-sound{
+  border: 1px solid rgba(255, 255, 255, .25);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, .25);
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+}
+.bg-sounds img{
+  width: 60px;
+}
+.bg-sounds input{
+  width: 90px;
+}
+
+.bg-sound .img-container{
+  border: 1px solid rgba(255, 255, 255, .25);
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, .15);
+  border-radius: 0.25rem;
+  padding: 1rem 1.5rem;
+  margin-bottom: 10px;
+ }
+ .img-container.active{
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px 2px rgba(74, 13, 166, 0.6);
+  border: 1px solid rgba(74, 13, 166, 0.25);
+  background: linear-gradient(to top left, rgba(57, 13, 129, 0.496), rgba(82, 31, 158, 0.625));
+  transition: transform 350ms ease-in-out,
+              background 350ms ease-in-out;
+ }
+
 footer{
   position: absolute;
   bottom: 0;
@@ -154,4 +195,50 @@ footer{
   font-size: 1.8rem;
   font-weight: bold;
   padding: 0.5rem 1rem;
+}
+
+@media (max-width: 880px) {
+  body{
+  flex-direction: column;
+  }
+  .form .input{
+    display: flex;
+    flex-direction: column;
+  }
+  .form .input select{
+    margin-bottom: 1rem;
+  }
+  .bg-sounds{
+    width: 90%;
+  }
+  .bg-sound img{
+    width: 50px;
+  }
+  .bg-sound input{
+    width: 80px;
+  }
+}
+
+@media (max-width: 700px) {
+  :root{
+    font-size: 8px;
+  }
+  .form{
+    width: 90%;
+  }
+  .bg-sounds{
+    padding: 1.5rem 1rem;
+  }
+  .bg-sound{
+    padding: 1rem;
+  }
+  footer{
+    left: 38%;
+  }
+
+  @media (max-width: 400px) {
+    footer{
+      left: 30%;
+    }
+  }
 }
