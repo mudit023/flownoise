@@ -235,10 +235,21 @@ footer{
   footer{
     left: 38%;
   }
-
-  @media (max-width: 400px) {
-    footer{
-      left: 30%;
-    }
+}
+@media (max-width: 400px) {
+  footer{
+    left: 30%;
+    margin-bottom: 1px;
+  }
+  .form{
+    gap: 0.5rem;
+    font-size: 2.4rem;
+  }
+  .form select{
+    padding: 0.5rem 1rem;
+    font-size: 2.8rem;
+  }
+  .bg-sounds{
+    margin-bottom: 40px;
   }
 }
