@@ -8,6 +8,7 @@ let roundsNumberValue = roundsNumber.value;
 const displayPomodoroTime = document.querySelector(".pomodoro-time");
 const displayRestTime = document.querySelector(".rest-time");
 const displayRounds = document.querySelector(".rounds-left");
+const displayTitle = document.querySelector('#title');
 
 let POMODOROTIME = pomodoroTimeValue;
 let RESTTIME = restTimeValue;
@@ -84,6 +85,7 @@ function pomodoroStart() {
         time = `${time} : ${pomodoroTimeValue % 60}`;
       }
       displayPomodoroTime.innerHTML = time;
+      displayTitle.innerHTML = 'In Flow';
     }, 1000);
   });
 }
@@ -116,6 +118,7 @@ function restStart() {
         time = `${time} : ${restTimeValue % 60}`;
       }
       displayRestTime.innerHTML = time;
+      displayTitle.innerHTML = 'Recharging';
     }, 1000);
   });
 }
@@ -129,6 +132,7 @@ function reset() {
   if (roundsNumberValue === 1) {
     playSound(finalRoundSound);
   }
+  displayTitle.innerHTML = 'Flownoise';
   displayRounds.innerHTML = roundsNumberValue;
   pomodoroTimeValue = POMODOROTIME;
   restTimeValue = RESTTIME;
@@ -145,6 +149,7 @@ const mainFunction = async () => {
       reset();
     }
   }
+  displayTitle.innerHTML = 'Flownoise';
   playSound(taskDoneSound);
   notificationGenerator("You did it! You deserve a break.");
   pomodoroTimeValue = POMODOROTIME;
