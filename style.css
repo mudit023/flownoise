@@ -31,6 +31,66 @@ body {
   background-size: cover;
 }
 
+nav{
+  position: fixed;
+  top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 90%;
+}
+.logo{
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+.logo-img{
+  backdrop-filter: blur(4px);
+  background: linear-gradient(
+    45deg,
+    rgba(127, 255, 212),
+    rgba(9, 46, 113)
+  );
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+nav img{
+  width: 6.4rem;
+  display: block;
+  filter:opacity(90%);
+}
+.logo p{
+  font-size: 3.2rem;
+  font-weight: 700;
+  word-spacing: -2px;
+  color: rgb(127, 255, 212);
+}
+
+.github{
+  backdrop-filter: blur(4px);
+  background: linear-gradient(
+    45deg,
+    rgba(127, 255, 212),
+    rgba(9, 46, 113)
+  );
+  border-radius: 50%;
+  cursor: pointer; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem;
+  filter: opacity(50%);
+  transition: filter 250ms ease-in-out;
+}
+
+.github:hover{
+  filter: opacity(95%);
+  transition: filter 250ms ease-in-out;
+}
+
 #function {
   background: linear-gradient(
     to top left,
@@ -80,7 +140,7 @@ body {
   font-size: 2.4rem;
   letter-spacing: 0.15rem;
   font-weight: 600;
-  color: aquamarine;
+  color: #7fffd4;
   background: linear-gradient(
     45deg,
     rgba(4, 41, 144, 0.646),
@@ -98,14 +158,17 @@ body {
   flex-direction: column;
   gap: 2rem;
 }
-.form select {
+.form .input label{
+  font-size: 3.2rem;
+  font-weight: 600;
+}
+.form .input select {
   background: url(./Assests/down-arrow.png);
   background-position: right center;
   background-size: 20px;
   background-repeat: no-repeat;
   padding: 0.5rem 1rem;
   font-size: 3.2rem;
-  font-weight: 600;
   height: 100%;
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -120,7 +183,7 @@ body {
   font-size: 2.4rem;
   letter-spacing: 0.15rem;
   font-weight: 600;
-  color: aquamarine;
+  color: #7fffd4;
   width: 200px;
   background: linear-gradient(
     45deg,
@@ -216,20 +279,35 @@ footer {
   font-weight: bold;
   padding: 0.5rem 1rem;
 }
+footer a{
+  color: #7fffd4;
+  transition: opacity 300ms ease-in-out;
+  opacity: 0.6;
+}
+footer a:hover{
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
+}
 
 @media (max-width: 880px) {
-  body {
-    flex-direction: column;
+  body{
+    justify-content: center;
+    gap: 1.5rem;
   }
   .form .input {
     display: flex;
     flex-direction: column;
   }
+  .form .input label{
+    font-size: 2.4rem;
+  }
   .form .input select {
     margin-bottom: 1rem;
+    font-size: 2.4rem;
   }
   .bg-sounds {
     width: 90%;
+    padding: 1rem 0.5rem;
   }
   .bg-sound img {
     width: 50px;
@@ -257,6 +335,15 @@ footer {
   }
 }
 @media (max-width: 400px) {
+  nav img{
+    width: 4rem;
+  }
+  nav{
+    top: 2px;
+  }
+  .logo p{
+    font-size: 2.4rem;
+  }
   footer {
     left: 30%;
     margin-bottom: 1px;
