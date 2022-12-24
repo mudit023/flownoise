@@ -26,7 +26,7 @@ const windSoundPath = "./Assests/sounds/bgSounds/wind-white-noise.mp3";
 const forestSoundPath = "./Assests/sounds/bgSounds/forest-white-noise.mp3";
 const publicPlaceSoundPath =
   "./Assests/sounds/bgSounds/public-place-white-noise.mp3";
-const underwaterSoundPath = "./Assests/sounds/bgSounds/underwater-white-noise.mp3";
+const fireSoundPath = "./Assests/sounds/bgSounds/fire-white-noise.mp3";
 const staticSoundPath = "./Assests/sounds/bgSounds/static-white-noise.mp3";
 
 const startButton = document.querySelector(".start-btn");
@@ -177,21 +177,21 @@ const playSound = (soundPath) => {
 // Background Sounds
 const keyboardBtn = document.querySelector(".keyboard");
 const windBtn = document.querySelector(".wind");
-const underwaterBtn = document.querySelector(".underwater");
+const fireBtn = document.querySelector(".fire");
 const forestBtn = document.querySelector(".forest");
 const staticBtn = document.querySelector(".radio-static");
 const publicPlaceBtn = document.querySelector(".public-place");
 
 const keyboardVolumeBtn = document.querySelector("#keyboard");
 const windVolumeBtn = document.querySelector("#wind");
-const underwaterVolumeBtn = document.querySelector("#underwater");
+const fireVolumeBtn = document.querySelector("#fire");
 const forestVolumeBtn = document.querySelector("#forest");
 const staticVolumeBtn = document.querySelector("#radio-static");
 const publicPlaceVolumeBtn = document.querySelector("#public-place");
 
 const keyboardSound = new Audio(keyboardSoundPath);
 const windSound = new Audio(windSoundPath);
-const underwaterSound = new Audio(underwaterSoundPath);
+const fireSound = new Audio(fireSoundPath);
 const forestSound = new Audio(forestSoundPath);
 const publicPlaceSound = new Audio(publicPlaceSoundPath);
 const staticSound = new Audio(staticSoundPath);
@@ -223,8 +223,8 @@ windBtn.addEventListener("click", ()=>{
 forestBtn.addEventListener("click", ()=>{
   playPauseBgSound(forestBtn, forestSound);
 });
-underwaterBtn.addEventListener("click", ()=>{
-  playPauseBgSound(underwaterBtn, underwaterSound);
+fireBtn.addEventListener("click", ()=>{
+  playPauseBgSound(fireBtn, fireSound);
 });
 staticBtn.addEventListener("click", ()=>{
   playPauseBgSound(staticBtn, staticSound);
@@ -240,8 +240,8 @@ keyboardVolumeBtn.addEventListener('change', ()=>{
 windVolumeBtn.addEventListener('change', ()=>{
   chnageVolume(windVolumeBtn, windSound)
 })
-underwaterVolumeBtn.addEventListener('change', ()=>{
-  chnageVolume(underwaterVolumeBtn, underwaterSound)
+fireVolumeBtn.addEventListener('change', ()=>{
+  chnageVolume(fireVolumeBtn, fireSound)
 })
 forestVolumeBtn.addEventListener('change', ()=>{
   chnageVolume(forestVolumeBtn, forestSound)
