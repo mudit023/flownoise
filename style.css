@@ -45,6 +45,7 @@ nav{
   flex-wrap: nowrap;
   gap: 0.5rem;
   align-items: center;
+  cursor: pointer;
 }
 .logo-img{
   backdrop-filter: blur(4px);
@@ -54,7 +55,6 @@ nav{
     rgba(9, 46, 113)
   );
   border-radius: 50%;
-  cursor: pointer;
   padding: 0.4rem;
 }
 nav img{
