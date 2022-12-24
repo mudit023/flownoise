@@ -248,6 +248,7 @@ nav img{
   border-radius: 0.25rem;
   padding: 1rem 1.5rem;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 .img-container.active {
   transform: scale(1.05);
