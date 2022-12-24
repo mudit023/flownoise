@@ -85,7 +85,7 @@ function pomodoroStart() {
         time = `${time} : ${pomodoroTimeValue % 60}`;
       }
       displayPomodoroTime.innerHTML = time;
-      displayTitle.innerHTML = 'In Flow';
+      displayTitle.innerHTML = 'Flownoise: In Flow';
     }, 1000);
   });
 }
@@ -118,7 +118,7 @@ function restStart() {
         time = `${time} : ${restTimeValue % 60}`;
       }
       displayRestTime.innerHTML = time;
-      displayTitle.innerHTML = 'Recharging';
+      displayTitle.innerHTML = 'Flownoise: Recharging';
     }, 1000);
   });
 }
@@ -284,6 +284,7 @@ const resetHandler = () => {
   pomodoroTimeValue = POMODOROTIME;
   restTimeValue = RESTTIME;
   roundsNumberValue = ROUNDSLEFT;
+  displayTitle.innerHTML = 'Flownoise';
 };
 
 // Start button functionality
