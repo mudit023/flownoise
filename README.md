@@ -1,2 +1,2 @@
-# Do-It-Now
-A Task Pomodoro Timer
+# Flownoise
+The only white noise you'll need to get into flow!

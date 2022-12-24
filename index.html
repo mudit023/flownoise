@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/90e347216f.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="./Assests/favicon.ico" type="image/x-icon">
-  <title>Do It Now</title>
+  <title id="title">Flownoise</title>
 </head>
 
 <body>
@@ -15,9 +16,9 @@
   <nav>
     <div class="logo">
       <div class="logo-img">
-        <img src="./Assests/efficiency.png" alt="Do-It-Now Logo">
+        <img src="./Assests/efficiency.png" alt="Flownoise Logo">
       </div>
-      <p>Do It Now</p>
+      <p>Flownoise</p>
     </div>
     <div class="github">
       <a href="https://github.com/mudit023/Do-It-Now" target="_blank">
@@ -30,8 +31,14 @@
     <div class="display">
       <div class="pomodoro-time">00:00</div>
       <div class="rest-rounds">
-        <div class="rest-time">00:00</div>
-        <div class="rounds-left">0</div>
+        <div>
+          <div class="rest-time">00:00</div>
+          <span class="rest">Rest</span>
+        </div>
+        <div>
+          <div class="rounds-left">0</div>
+          <span class="rounds">↻</span>
+        </div>
       </div>
       <button type="button" class="reset-btn">Reset</button>
     </div>
@@ -102,7 +109,9 @@
       <input type="range" name="public-volume" id="public-place" min="0" max="0.9" value="0.3" step="0.1">
     </div>
   </div>
-  <footer>Made with⚡by <a href="https://twitter.com/muditwt" target="_blank">Mudit</a></footer>
+  <footer>
+    <div class="footer-div">Made with⚡by <a href="https://twitter.com/muditwt" target="_blank">Mudit</a></div>
+  </footer>
   <script src="./index.js"></script>
 </body>
 

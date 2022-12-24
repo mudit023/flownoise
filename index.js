@@ -20,6 +20,7 @@ const finalRoundSound = "./Assests/sounds/final-round.mp3";
 const taskDoneSound = "./Assests/sounds/task-done.mp3";
 const restStartSound = "./Assests/sounds/rest-start.mp3";
 const successSound = "./Assests/sounds/success.mp3";
+const bodyCareSound = "./Assests/sounds/body-care.mp3";
 
 const keyboardSoundPath = "./Assests/sounds/bgSounds/keyboard-white-noise.mp3";
 const windSoundPath = "./Assests/sounds/bgSounds/wind-white-noise.mp3";
@@ -59,7 +60,7 @@ function pomodoroStart() {
     setTime = setInterval(() => {
       let time = "";
       if (pomodoroTimeValue <= 1) {
-        playSound(restStartSound);
+        playBodyCareSound();
         clrInterval(setTime);
         // When we return promise explicitly, we also have to resolve/reject it explicilty by calling the resolve/reject function.
         // In this case res() to resolve and rej() to reject the promise.
@@ -121,7 +122,6 @@ function restStart() {
 
 // To reset the pomodoro and restStart functions and values. And to update the rounds
 function reset() {
-  console.log("Inside Reset: After Await");
   roundsNumberValue--;
   if (roundsNumberValue > 1) {
     playSound(nextRoundSound);
@@ -138,8 +138,12 @@ function reset() {
 const mainFunction = async () => {
   for (let i = 1; i <= ROUNDSLEFT; i++) {
     await pomodoroStart();
-    await restStart();
-    reset();
+    if(roundsNumberValue>1){
+      await restStart();
+      reset();
+    } else{
+      reset();
+    }
   }
   playSound(taskDoneSound);
   notificationGenerator("You did it! You deserve a break.");
@@ -160,7 +164,21 @@ function clrInterval(interval) {
 const playSound = (soundPath) => {
   let sound = new Audio(soundPath);
   sound.play();
+  sound.volume = 0.7;
 };
+
+const playBodyCareSound = () => {
+  if(roundsNumberValue>1){
+    if(POMODOROTIME>1500 || ROUNDSLEFT>2){
+      playSound(restStartSound);
+      setTimeout(()=>{
+        playSound(bodyCareSound);
+      }, 5000)
+    } else{
+      playSound(restStartSound);
+    }
+  }
+}
 
 // Background Sounds
 const keyboardBtn = document.querySelector(".keyboard");
@@ -193,11 +211,9 @@ const playPauseBgSound = (ele, audioObj) => {
     audioObj.volume = 0.3;
     audioObj.loop = true;
     ele.classList.add("active");
-    console.log("inside play");
   } else {
     audioObj.pause();
     ele.classList.remove("active");
-    console.log("inside pause");
   }
 };
 
