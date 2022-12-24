@@ -36,21 +36,15 @@ pomodoroTime.addEventListener("change", (e) => {
   pomodoroTimeValue = e.target.value;
   pomodoroTimeValue = pomodoroTimeValue * 60;
   POMODOROTIME = pomodoroTimeValue;
-  // For Testing
-  console.log(pomodoroTimeValue);
 });
 restTime.addEventListener("change", (e) => {
   restTimeValue = e.target.value;
   restTimeValue = restTimeValue * 60;
   RESTTIME = restTimeValue;
-  // For Testing
-  console.log(restTimeValue);
 });
 roundsNumber.addEventListener("change", (e) => {
   roundsNumberValue = e.target.value;
   ROUNDSLEFT = roundsNumberValue;
-  // For Testing
-  console.log(roundsNumberValue);
 });
 
 // setInterval IDs
@@ -136,17 +130,13 @@ function reset() {
     playSound(finalRoundSound);
   }
   displayRounds.innerHTML = roundsNumberValue;
-  console.log("Pomodoro time:" + POMODOROTIME);
   pomodoroTimeValue = POMODOROTIME;
   restTimeValue = RESTTIME;
-  console.log("Rounds Left: " + roundsNumberValue);
 }
 
 // The function that will run all the other functions
 const mainFunction = async () => {
   for (let i = 1; i <= ROUNDSLEFT; i++) {
-    // For testing
-    console.log("Inside Main Function: Rounds");
     await pomodoroStart();
     await restStart();
     reset();
@@ -164,8 +154,6 @@ const mainFunction = async () => {
 // Function to clear pomodoro and restStart setIntervals
 function clrInterval(interval) {
   clearInterval(interval);
-  // For testing
-  console.log("Inside clr interval");
 }
 
 // ******************** Sounds ***********************
@@ -182,6 +170,7 @@ const forestBtn = document.querySelector(".forest");
 const staticBtn = document.querySelector(".radio-static");
 const publicPlaceBtn = document.querySelector(".public-place");
 
+// Volume Controllers
 const keyboardVolumeBtn = document.querySelector("#keyboard");
 const windVolumeBtn = document.querySelector("#wind");
 const fireVolumeBtn = document.querySelector("#fire");
@@ -189,6 +178,7 @@ const forestVolumeBtn = document.querySelector("#forest");
 const staticVolumeBtn = document.querySelector("#radio-static");
 const publicPlaceVolumeBtn = document.querySelector("#public-place");
 
+// Audio Objects
 const keyboardSound = new Audio(keyboardSoundPath);
 const windSound = new Audio(windSoundPath);
 const fireSound = new Audio(fireSoundPath);
@@ -196,62 +186,65 @@ const forestSound = new Audio(forestSoundPath);
 const publicPlaceSound = new Audio(publicPlaceSoundPath);
 const staticSound = new Audio(staticSoundPath);
 
+// BG sound play-pause function
 const playPauseBgSound = (ele, audioObj) => {
-  if(audioObj.paused===true){
+  if (audioObj.paused === true) {
     audioObj.play();
     audioObj.volume = 0.3;
     audioObj.loop = true;
     ele.classList.add("active");
-    console.log('inside play');
+    console.log("inside play");
   } else {
-      audioObj.pause();
-      ele.classList.remove("active");
-      console.log('inside pause');
+    audioObj.pause();
+    ele.classList.remove("active");
+    console.log("inside pause");
   }
 };
 
-const chnageVolume = (ele, audioObj) =>{
+// Volume change function
+const chnageVolume = (ele, audioObj) => {
   audioObj.volume = ele.value;
-}
+};
 
-keyboardBtn.addEventListener("click", ()=>{
+// BG sounds buttons
+keyboardBtn.addEventListener("click", () => {
   playPauseBgSound(keyboardBtn, keyboardSound);
 });
-windBtn.addEventListener("click", ()=>{
+windBtn.addEventListener("click", () => {
   playPauseBgSound(windBtn, windSound);
 });
-forestBtn.addEventListener("click", ()=>{
+forestBtn.addEventListener("click", () => {
   playPauseBgSound(forestBtn, forestSound);
 });
-fireBtn.addEventListener("click", ()=>{
+fireBtn.addEventListener("click", () => {
   playPauseBgSound(fireBtn, fireSound);
 });
-staticBtn.addEventListener("click", ()=>{
+staticBtn.addEventListener("click", () => {
   playPauseBgSound(staticBtn, staticSound);
 });
-publicPlaceBtn.addEventListener("click", ()=>{
+publicPlaceBtn.addEventListener("click", () => {
   playPauseBgSound(publicPlaceBtn, publicPlaceSound);
 });
 
 // Volume Controller
-keyboardVolumeBtn.addEventListener('change', ()=>{
-  chnageVolume(keyboardVolumeBtn, keyboardSound)
-})
-windVolumeBtn.addEventListener('change', ()=>{
-  chnageVolume(windVolumeBtn, windSound)
-})
-fireVolumeBtn.addEventListener('change', ()=>{
-  chnageVolume(fireVolumeBtn, fireSound)
-})
-forestVolumeBtn.addEventListener('change', ()=>{
-  chnageVolume(forestVolumeBtn, forestSound)
-})
-staticVolumeBtn.addEventListener('change', ()=>{
-  chnageVolume(staticVolumeBtn, staticSound)
-})
-publicPlaceVolumeBtn.addEventListener('change', ()=>{
-  chnageVolume(publicPlaceVolumeBtn, publicPlaceSound)
-})
+keyboardVolumeBtn.addEventListener("change", () => {
+  chnageVolume(keyboardVolumeBtn, keyboardSound);
+});
+windVolumeBtn.addEventListener("change", () => {
+  chnageVolume(windVolumeBtn, windSound);
+});
+fireVolumeBtn.addEventListener("change", () => {
+  chnageVolume(fireVolumeBtn, fireSound);
+});
+forestVolumeBtn.addEventListener("change", () => {
+  chnageVolume(forestVolumeBtn, forestSound);
+});
+staticVolumeBtn.addEventListener("change", () => {
+  chnageVolume(staticVolumeBtn, staticSound);
+});
+publicPlaceVolumeBtn.addEventListener("change", () => {
+  chnageVolume(publicPlaceVolumeBtn, publicPlaceSound);
+});
 
 // *********************** Notification *******************************
 const notificationGenerator = (title) => {
@@ -286,9 +279,7 @@ const startHandler = () => {
   }`;
   displayRounds.innerHTML = roundsNumberValue;
 
-  Notification.requestPermission().then((result) => {
-    console.log(result);
-  });
+  Notification.requestPermission().then((result) => {});
   mainFunction();
 };
 
