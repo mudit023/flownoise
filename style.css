@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
 
 * {
   margin: 0;
@@ -33,7 +33,7 @@ body {
   background-size: cover;
 }
 
-nav{
+nav {
   position: fixed;
   top: 10px;
   display: flex;
@@ -42,44 +42,36 @@ nav{
   flex-wrap: nowrap;
   width: 90%;
 }
-.logo{
+.logo {
   display: flex;
   flex-wrap: nowrap;
   gap: 0.5rem;
   align-items: center;
   cursor: pointer;
 }
-.logo-img{
+.logo-img {
   backdrop-filter: blur(4px);
-  background: linear-gradient(
-    45deg,
-    rgba(127, 255, 212),
-    rgba(9, 46, 113)
-  );
+  background: linear-gradient(45deg, rgba(127, 255, 212), rgba(9, 46, 113));
   border-radius: 50%;
   padding: 0.4rem;
 }
-nav img{
+nav img {
   width: 4rem;
   display: block;
-  filter:opacity(90%);
+  filter: opacity(90%);
 }
-.logo p{
-  font-family: 'Lato', sans-serif;
+.logo p {
+  font-family: "Lato", sans-serif;
   font-size: 2.4rem;
   font-weight: 400;
   color: rgb(213, 240, 231);
 }
 
-.github{
+.github {
   backdrop-filter: blur(4px);
-  background: linear-gradient(
-    45deg,
-    rgba(127, 255, 212),
-    rgba(9, 46, 113)
-  );
+  background: linear-gradient(45deg, rgba(127, 255, 212), rgba(9, 46, 113));
   border-radius: 50%;
-  cursor: pointer; 
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,7 +80,7 @@ nav img{
   transition: filter 250ms ease-in-out;
 }
 
-.github:hover{
+.github:hover {
   filter: opacity(95%);
   transition: filter 250ms ease-in-out;
 }
@@ -128,7 +120,7 @@ nav img{
   display: flex;
   justify-content: space-between;
 }
-.rest-rounds div{
+.rest-rounds div {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -143,7 +135,7 @@ nav img{
   font-size: 3.2rem;
 }
 .rest,
-.rounds{
+.rounds {
   font-size: 1.8rem;
   font-weight: 700;
   display: block;
@@ -173,7 +165,7 @@ nav img{
   flex-direction: column;
   gap: 2rem;
 }
-.form .input label{
+.form .input label {
   font-size: 3.2rem;
   font-weight: 600;
 }
@@ -276,6 +268,17 @@ nav img{
   );
   transition: transform 350ms ease-in-out, background 350ms ease-in-out;
 }
+.bg-sounds .mute-message {
+  display: none;
+}
+.mute-message.muted{
+  display:block;
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
 
 footer {
   position: fixed;
@@ -286,7 +289,7 @@ footer {
   width: 100%;
   text-align: center;
 }
-.footer-div{
+.footer-div {
   background: linear-gradient(
     to top left,
     rgba(190, 190, 190, 0.247),
@@ -300,18 +303,18 @@ footer {
   font-weight: bold;
   padding: 0.5rem 1rem;
 }
-.footer-div a{
+.footer-div a {
   color: #7fffd4;
   transition: opacity 300ms ease-in-out;
   opacity: 0.6;
 }
-.footer-div a:hover{
+.footer-div a:hover {
   opacity: 1;
   transition: opacity 300ms ease-in-out;
 }
 
 @media (max-width: 880px) {
-  body{
+  body {
     justify-content: center;
     gap: 1.5rem;
   }
@@ -319,7 +322,7 @@ footer {
     display: flex;
     flex-direction: column;
   }
-  .form .input label{
+  .form .input label {
     font-size: 2.4rem;
   }
   .form .input select {
@@ -350,13 +353,13 @@ footer {
   }
 }
 @media (max-width: 400px) {
-  nav img{
+  nav img {
     width: 4rem;
   }
-  nav{
+  nav {
     top: 2px;
   }
-  .logo p{
+  .logo p {
     font-size: 2.4rem;
   }
   .form {

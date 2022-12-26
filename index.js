@@ -8,12 +8,13 @@ let roundsNumberValue = roundsNumber.value;
 const displayPomodoroTime = document.querySelector(".pomodoro-time");
 const displayRestTime = document.querySelector(".rest-time");
 const displayRounds = document.querySelector(".rounds-left");
-const displayTitle = document.querySelector('#title');
+const displayTitle = document.querySelector("#title");
 
 let POMODOROTIME = pomodoroTimeValue;
 let RESTTIME = restTimeValue;
 let ROUNDSLEFT = roundsNumberValue;
 let resetFlag = false;
+let muteSoundFlag = false;
 
 // Sounds Path
 const nextRoundSound = "./Assests/sounds/next-round.mp3";
@@ -85,7 +86,7 @@ function pomodoroStart() {
         time = `${time} : ${pomodoroTimeValue % 60}`;
       }
       displayPomodoroTime.innerHTML = time;
-      displayTitle.innerHTML = 'In Flow: Flownoise';
+      displayTitle.innerHTML = "In Flow: Flownoise";
     }, 1000);
   });
 }
@@ -118,7 +119,7 @@ function restStart() {
         time = `${time} : ${restTimeValue % 60}`;
       }
       displayRestTime.innerHTML = time;
-      displayTitle.innerHTML = 'Recharging: Flownoise';
+      displayTitle.innerHTML = "Recharging: Flownoise";
     }, 1000);
   });
 }
@@ -132,7 +133,7 @@ function reset() {
   if (roundsNumberValue === 1) {
     playSound(finalRoundSound);
   }
-  displayTitle.innerHTML = 'Flownoise';
+  displayTitle.innerHTML = "Flownoise";
   displayRounds.innerHTML = roundsNumberValue;
   pomodoroTimeValue = POMODOROTIME;
   restTimeValue = RESTTIME;
@@ -142,14 +143,14 @@ function reset() {
 const mainFunction = async () => {
   for (let i = 1; i <= ROUNDSLEFT; i++) {
     await pomodoroStart();
-    if(roundsNumberValue>1){
+    if (roundsNumberValue > 1) {
       await restStart();
       reset();
-    } else{
+    } else {
       reset();
     }
   }
-  displayTitle.innerHTML = 'Flownoise';
+  displayTitle.innerHTML = "Flownoise";
   playSound(taskDoneSound);
   notificationGenerator("You did it! You deserve a break.");
   pomodoroTimeValue = POMODOROTIME;
@@ -173,17 +174,17 @@ const playSound = (soundPath) => {
 };
 
 const playBodyCareSound = () => {
-  if(roundsNumberValue>1){
-    if(POMODOROTIME>1500 || ROUNDSLEFT>2){
+  if (roundsNumberValue > 1) {
+    if (POMODOROTIME > 1500 || ROUNDSLEFT > 2) {
       playSound(restStartSound);
-      setTimeout(()=>{
+      setTimeout(() => {
         playSound(bodyCareSound);
-      }, 5000)
-    } else{
+      }, 5000);
+    } else {
       playSound(restStartSound);
     }
   }
-}
+};
 
 // Background Sounds
 const keyboardBtn = document.querySelector(".keyboard");
@@ -225,6 +226,36 @@ const playPauseBgSound = (ele, audioObj) => {
 // Volume change function
 const chnageVolume = (ele, audioObj) => {
   audioObj.volume = ele.value;
+};
+
+// Mute
+const muteMessage = document.querySelector(".mute-message");
+const muteSound = (audioObj) => {
+  muteMessage.classList.add("muted");
+  audioObj.muted = true;
+};
+const unmuteSound = (audioObj) => {
+  muteMessage.classList.remove("muted");
+  audioObj.muted = false;
+};
+const muteHandler = () => {
+  if (!muteSoundFlag) {
+    muteSound(keyboardSound);
+    muteSound(windSound);
+    muteSound(fireSound);
+    muteSound(forestSound);
+    muteSound(staticSound);
+    muteSound(publicPlaceSound);
+    muteSoundFlag = true;
+  } else {
+    unmuteSound(keyboardSound);
+    unmuteSound(windSound);
+    unmuteSound(fireSound);
+    unmuteSound(forestSound);
+    unmuteSound(staticSound);
+    unmuteSound(publicPlaceSound);
+    muteSoundFlag = false;
+  }
 };
 
 // BG sounds buttons
@@ -284,7 +315,7 @@ const resetHandler = () => {
   pomodoroTimeValue = POMODOROTIME;
   restTimeValue = RESTTIME;
   roundsNumberValue = ROUNDSLEFT;
-  displayTitle.innerHTML = 'Flownoise';
+  displayTitle.innerHTML = "Flownoise";
 };
 
 // Start button functionality
@@ -307,3 +338,8 @@ const startHandler = () => {
 
 startButton.addEventListener("click", startHandler);
 resetButton.addEventListener("click", resetHandler);
+window.addEventListener("keypress", (e) => {
+  if (e.key === "m") {
+    muteHandler();
+  }
+});
