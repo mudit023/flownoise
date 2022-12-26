@@ -85,7 +85,7 @@ function pomodoroStart() {
         time = `${time} : ${pomodoroTimeValue % 60}`;
       }
       displayPomodoroTime.innerHTML = time;
-      displayTitle.innerHTML = 'Flownoise: In Flow';
+      displayTitle.innerHTML = 'In Flow: Flownoise';
     }, 1000);
   });
 }
@@ -118,7 +118,7 @@ function restStart() {
         time = `${time} : ${restTimeValue % 60}`;
       }
       displayRestTime.innerHTML = time;
-      displayTitle.innerHTML = 'Flownoise: Recharging';
+      displayTitle.innerHTML = 'Recharging: Flownoise';
     }, 1000);
   });
 }
