@@ -21,7 +21,6 @@ const nextRoundSound = "./Assests/sounds/next-round.mp3";
 const finalRoundSound = "./Assests/sounds/final-round.mp3";
 const taskDoneSound = "./Assests/sounds/task-done.mp3";
 const restStartSound = "./Assests/sounds/rest-start.mp3";
-const successSound = "./Assests/sounds/success.mp3";
 const bodyCareSound = "./Assests/sounds/body-care.mp3";
 
 const keyboardSoundPath = "./Assests/sounds/bgSounds/keyboard-white-noise.mp3";
