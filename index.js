@@ -300,7 +300,7 @@ publicPlaceVolumeBtn.addEventListener("change", () => {
 // *********************** Notification *******************************
 const notificationGenerator = (title) => {
   const logo = "./Assests/efficiency.png";
-  const notification = new Notification("Do It Now", {
+  const notification = new Notification("Flownoise", {
     body: title,
     icon: logo,
   });
