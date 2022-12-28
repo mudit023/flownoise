@@ -1,7 +1,7 @@
 # [Flownoise](https://flownoise.vercel.app/)
 ![flownoise-banner](./Assests/flownoise%20banner.png)
 
-### Deployment: [flownoise.vercel.app](flownoise.vercel.app)
+### Deployment: [flownoise.vercel.app](https://flownoise.vercel.app/)
 ---
 
 ## What is Flownoise?
@@ -12,14 +12,13 @@ The feature that I love the most is its audio notifications🔊 Flownoise will n
 ## Flownoise UI
 
 ### Desktop View:
-![flownoise-ui](./Assests/Screenshot%202022-12-27%20171719.png)
-![flownoise-timer-ui](./Assests/Screenshot%202022-12-27%20171837.png)
+<img src="./Assests/Screenshot%202022-12-27%20171719.png" alt="flownoise-desktop-ui" width="800px" height="400px">
+
+<img src="./Assests/Screenshot%202022-12-27%20171837.png" alt="flownoise-timer-desktop-ui" width="800px" height="400px">
 
 ### Mobile View:
-![flownoise-mobile-ui](./Assests/Screenshot%202022-12-27%20172032.png)
+<img src="./Assests/Screenshot%202022-12-27%20172032.png" alt="flownoise-mobile-ui" width="400px" height="800px">  <img src="./Assests/Screenshot%202022-12-27%20172016.png" alt="flownoise-mobile-ui" width="400px" height="800px">
 
-
-![flownoise-mobile-ui](./Assests/Screenshot%202022-12-27%20172016.png)
 
 ## Features
 - **Flownoise Session:** Get in flow➡️Recharge➡️Repeat🔁
