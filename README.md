@@ -51,3 +51,5 @@ The feature that I love the most is its audio notifications🔊 Flownoise will n
 - [flaticon](https://www.flaticon.com/): Icons used
 - [Pixabay](http://pixabay.com/music): Ambient Sounds
 - [Favicon](favicon.io): Favicon Generator
+
+> **Note:** Flownoise is still evolving, a lot of work left on UI. I'll make the UI with TailwindCSS. If you folks want some more features, you can create an issue about it in the [issues section](https://github.com/mudit023/flownoise/issues).
