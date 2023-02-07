@@ -1,11 +1,11 @@
 # [Flownoise](https://flownoise.vercel.app/)
 ![flownoise-banner](./Assests/flownoise%20banner.png)
 
-### Deployment: [flownoise.vercel.app](flownoise.vercel.app)
+### Deployment: [flownoise.vercel.app](https://flownoise.vercel.app/)
 ---
 
 ## What is Flownoise?
-It's a productivity app that I made to make my life easier. You can use it to for your needs. Do you follow **pomodoro** technique? Then you'll **flownoise**. I have added a timer with a bunch of useful features. And that's not it, if you like lisenting to ambient sound while working then **flownoise** got you covered. Flownoise has six different ambient sounds with separate volume control for each sound.
+It's a productivity app that I made to make my life easier. You can use it to for your needs. Do you follow **pomodoro** technique? Then you'll **flownoise**. I have added a timer with a bunch of useful features. And that's not it, if you like listening to ambient sound while working then **flownoise** got you covered. Flownoise has six different ambient sounds with separate volume control for each sound.
 
 The feature that I love the most is its audio notifications🔊 Flownoise will notify you to take breaks, hydrate yourself, and also stretch your body. This can be very helpful when you are working for long hours.
 
@@ -53,4 +53,3 @@ The feature that I love the most is its audio notifications🔊 Flownoise will n
 - [flaticon](https://www.flaticon.com/): Theme Icons
 - [Pixabay](http://pixabay.com/music): Ambient Sounds
 - [Favicon](favicon.io): Favicon Generator
-- [Font Awesome](https://fontawesome.com/): UI Icons
