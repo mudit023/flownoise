@@ -11,15 +11,16 @@ The feature that I love the most is its audio notifications🔊 Flownoise will n
 
 ## Flownoise UI
 
-### Desktop View:
-![flownoise-ui](./Assests/Screenshot%202022-12-27%20171719.png)
-![flownoise-timer-ui](./Assests/Screenshot%202022-12-27%20171837.png)
+### Light Mode:
+![flownoise-timer-ui](./Assets/Screenshots/Screenshot%202023-02-08%20013821.png)
 
-### Mobile View:
-![flownoise-mobile-ui](./Assests/Screenshot%202022-12-27%20172032.png)
+![flownoise-ui](./Assets/Screenshots/Screenshot%202023-02-08%20013915.png)
 
 
-![flownoise-mobile-ui](./Assests/Screenshot%202022-12-27%20172016.png)
+### Dark Mode:
+![flownoise-dark-ui](./Assets/Screenshots/Screenshot%202023-02-08%20014129.png)
+
+![flownoise-dark-ui](./Assets/Screenshots/Screenshot%202023-02-08%20014322.png)
 
 ## Features
 - **Flownoise Session:** Get in flow➡️Recharge➡️Repeat🔁
@@ -49,6 +50,7 @@ The feature that I love the most is its audio notifications🔊 Flownoise will n
   - Asynchronous JavaScript
 - [Vercel](https://vercel.com/): Deployment & Analytics
 - [Wideo](https://wideo.co/text-to-speech/): For audio notifications
-- [flaticon](https://www.flaticon.com/): Icons used
+- [flaticon](https://www.flaticon.com/): Theme Icons
 - [Pixabay](http://pixabay.com/music): Ambient Sounds
 - [Favicon](favicon.io): Favicon Generator
+- [Font Awesome](https://fontawesome.com/): UI Icons
