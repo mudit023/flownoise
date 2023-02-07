@@ -17,19 +17,19 @@ let resetFlag = false;
 let muteSoundFlag = false;
 
 // Sounds Path
-const nextRoundSound = "./Assests/sounds/next-round.mp3";
-const finalRoundSound = "./Assests/sounds/final-round.mp3";
-const taskDoneSound = "./Assests/sounds/task-done.mp3";
-const restStartSound = "./Assests/sounds/rest-start.mp3";
-const bodyCareSound = "./Assests/sounds/body-care.mp3";
+const nextRoundSound = "./Assets/sounds/next-round.mp3";
+const finalRoundSound = "./Assets/sounds/final-round.mp3";
+const taskDoneSound = "./Assets/sounds/task-done.mp3";
+const restStartSound = "./Assets/sounds/rest-start.mp3";
+const bodyCareSound = "./Assets/sounds/body-care.mp3";
 
-const keyboardSoundPath = "./Assests/sounds/bgSounds/keyboard-white-noise.mp3";
-const windSoundPath = "./Assests/sounds/bgSounds/wind-white-noise.mp3";
-const forestSoundPath = "./Assests/sounds/bgSounds/forest-white-noise.mp3";
+const keyboardSoundPath = "./Assets/sounds/bgSounds/keyboard-white-noise.mp3";
+const windSoundPath = "./Assets/sounds/bgSounds/wind-white-noise.mp3";
+const forestSoundPath = "./Assets/sounds/bgSounds/forest-white-noise.mp3";
 const publicPlaceSoundPath =
-  "./Assests/sounds/bgSounds/public-place-white-noise.mp3";
-const fireSoundPath = "./Assests/sounds/bgSounds/fire-white-noise.mp3";
-const staticSoundPath = "./Assests/sounds/bgSounds/static-white-noise.mp3";
+  "./Assets/sounds/bgSounds/public-place-white-noise.mp3";
+const fireSoundPath = "./Assets/sounds/bgSounds/fire-white-noise.mp3";
+const staticSoundPath = "./Assets/sounds/bgSounds/static-white-noise.mp3";
 
 const startButton = document.querySelector(".start-btn");
 const resetButton = document.querySelector(".reset-btn");
@@ -155,9 +155,12 @@ const mainFunction = async () => {
   pomodoroTimeValue = POMODOROTIME;
   restTimeValue = RESTTIME;
   roundsNumberValue = ROUNDSLEFT;
-  document.querySelector(".on-complete").classList.add("active");
-  document.querySelector(".display").classList.remove("active");
-  document.querySelector(".form").classList.remove("disable");
+  document.querySelector(".on-complete").classList.add("flex");
+  document.querySelector(".on-complete").classList.remove("hidden");
+  document.querySelector(".display").classList.remove("felx");
+  document.querySelector(".display").classList.add("hidden");
+  document.querySelector(".form").classList.remove("hidden");
+  document.querySelector(".form").classList.add("flex");
 };
 
 // Function to clear pomodoro and restStart setIntervals
@@ -215,10 +218,18 @@ const playPauseBgSound = (ele, audioObj) => {
     audioObj.play();
     audioObj.volume = 0.3;
     audioObj.loop = true;
-    ele.classList.add("active");
+    ele.classList.add("dark:border");
+    ele.classList.add("dark:bg-slate-800");
+    ele.classList.add("border");
+    ele.classList.add("border-orange-900");
+    ele.classList.add("bg-orange-100");
   } else {
     audioObj.pause();
-    ele.classList.remove("active");
+    ele.classList.remove("dark:border");
+    ele.classList.remove("dark:bg-slate-800");
+    ele.classList.remove("border");
+    ele.classList.remove("border-orange-900");
+    ele.classList.remove("bg-orange-100");
   }
 };
 
@@ -230,11 +241,13 @@ const chnageVolume = (ele, audioObj) => {
 // Mute
 const muteMessage = document.querySelector(".mute-message");
 const muteSound = (audioObj) => {
-  muteMessage.classList.add("muted");
+  muteMessage.classList.add("flex");
+  muteMessage.classList.remove("hidden");
   audioObj.muted = true;
 };
 const unmuteSound = (audioObj) => {
-  muteMessage.classList.remove("muted");
+  muteMessage.classList.add("hidden");
+  muteMessage.classList.remove("flex");
   audioObj.muted = false;
 };
 const muteHandler = () => {
@@ -299,7 +312,7 @@ publicPlaceVolumeBtn.addEventListener("change", () => {
 
 // *********************** Notification *******************************
 const notificationGenerator = (title) => {
-  const logo = "./Assests/efficiency.png";
+  const logo = "./Assets/efficiency.png";
   const notification = new Notification("Flownoise", {
     body: title,
     icon: logo,
@@ -308,8 +321,11 @@ const notificationGenerator = (title) => {
 
 // Reset Functionality
 const resetHandler = () => {
-  document.querySelector(".display").classList.remove("active");
-  document.querySelector(".form").classList.remove("disable");
+  document.querySelector(".display").classList.remove("flex");
+  document.querySelector(".display").classList.add("hidden");
+  document.querySelector(".form").classList.remove("hidden");
+  document.querySelector(".form").classList.add("flex");
+  document.querySelector(".on-complete").classList.add("hidden");
   resetFlag = true;
   pomodoroTimeValue = POMODOROTIME;
   restTimeValue = RESTTIME;
@@ -319,9 +335,11 @@ const resetHandler = () => {
 
 // Start button functionality
 const startHandler = () => {
-  document.querySelector(".display").classList.add("active");
-  document.querySelector(".form").classList.add("disable");
-  document.querySelector(".on-complete").classList.remove("active");
+  document.querySelector(".display").classList.add("flex");
+  document.querySelector(".display").classList.remove("hidden");
+  document.querySelector(".form").classList.add("hidden");
+  document.querySelector(".on-complete").classList.add("hidden");
+  // document.querySelector(".on-complete").classList.remove("active");
   resetFlag = false;
   displayPomodoroTime.innerHTML = `${Math.floor(pomodoroTimeValue / 60)} : ${
     pomodoroTimeValue % 60

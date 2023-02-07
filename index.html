@@ -5,115 +5,148 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <script defer src="/_vercel/insights/script.js"></script>
-  <link rel="shortcut icon" href="./Assests/favicon.ico" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/90e347216f.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./public/output.css">
+  <!-- <script defer src="/_vercel/insights/script.js"></script> -->
+  <link rel="shortcut icon" href="./Assets/favicon.ico" type="image/x-icon">
   <title id="title">Flownoise</title>
 </head>
 
-<body>
+<body class=" dark:bg-slate-800 bg-yellow-100 font-sans md:text-2xl text-xl md:px-10 px-3 h-full">
 
-  <nav>
-    <div class="logo">
-      <div class="logo-img">
-        <img src="./Assests/efficiency.png" alt="Flownoise Logo">
+  <nav class="flex justify-between max-w-7xl mt-12  mx-auto md:text-5xl text-3xl font-semibold">
+    <div class="logo flex items-center justify-between">
+      <div class="logo-img mr-2">
+        <i class="fa-solid fa-gear dark:text-slate-300 text-orange-900"></i>
       </div>
-      <p>Flownoise</p>
+      <p class="dark:text-slate-500 text-orange-700">Flownoise</p>
     </div>
-    <div class="github">
-      <a href="https://github.com/mudit023/flownoise" target="_blank">
-        <img src="./Assests/github.png" alt="GitHub Link">
-      </a>
+
+    <div class="flex justify-center items-center">
+
+      <div class="mr-5 cursor-pointer">
+        <img class="moon w-[24px]" src="./Assets/crescent-moon.png" alt="">
+        <img class="sun w-[24px]" src="./Assets/sun.png" alt="">
+      </div>
+      <div class="github hover:opacity-80 hover:scale-105 transition-transform">
+        <a href="https://github.com/mudit023/flownoise" target="_blank">
+          <i class="fa-brands fa-github dark:text-slate-300 text-orange-900"></i>
+        </a>
+      </div>
+
     </div>
   </nav>
 
-  <section id="function">
-    <div class="display">
-      <div class="pomodoro-time">00:00</div>
-      <div class="rest-rounds">
-        <div>
-          <div class="rest-time">00:00</div>
-          <span class="rest">Rest</span>
+  <section id="function" class="text-4xl max-w-2xl my-0 mx-auto mt-20">
+
+    <div class="display dark:bg-slate-900 bg-orange-300 dark:text-blue-200 text-orange-700 my-0 mx-auto md:p-6 p-3 flex-col items-center gap-5 hidden">
+      <div class="pomodoro-time md:text-8xl text-6xl text-center font-medium dark:text-slate-500 text-orange-800">00:00</div>
+      <div class="rest-rounds  flex justify-evenly w-full">
+        <div class="flex flex-col items-center">
+          <span class="rest text-base">Rest Time</span>
+          <div class="rest-time font-medium text-4xl">00:00</div>
         </div>
-        <div>
-          <div class="rounds-left">0</div>
-          <span class="rounds">↻</span>
+        <div class="flex flex-col items-center">
+          <span class="rounds text-base">Rounds Left</span>
+          <div class="rounds-left font-medium text-4xl">0</div>
         </div>
       </div>
-      <button type="button" class="reset-btn">Reset</button>
+      <div class="w-full flex justify-center items-center mt-5">
+        <button type="button"
+          class="reset-btn py-2 px-5 dark:bg-slate-800 bg-orange-100 hover:bg-orange-50 dark:hover:bg-slate-700 transition-colors text-lg font-medium tracking-wider md-w-1/2 w-full">Reset</button>
+      </div>
     </div>
 
-    <p class="on-complete">Task Done!</p>
+    <p class="on-complete hidden dark:text-slate-200 text-orange-700">Task Done!</p>
 
-    <div class="form">
-     <div class="input">
-      <label for="pomodoro-time">Round Time:</label>
-      <select name="time" id="pomodoro-time">
-        <option class="select-option" value="25" selected>25:00</option>
-        <option class="select-option" value="40">40:00</option>
-        <option class="select-option" value="60">60:00</option>
-      </select>
-      <label for="rest-time">Rest Time:</label>
-      <select name="rest" id="rest-time">
-        <option class="select-option" value="5" selected>5:00</option>
-        <option class="select-option" value="10">10:00</option>
-        <option class="select-option" value="15">15:00</option>
-      </select>
-      <label for="rounds">Rounds:</label>
-      <select name="rounds" id="rounds">
-        <option class="select-option" value="1" selected>1</option>
-        <option class="select-option" value="2">2</option>
-        <option class="select-option" value="3">3</option>
-        <option class="select-option" value="4">4</option>
-      </select>
-     </div>
-      <button type="button" class="start-btn">Start</button>
+    <div class="form dark:bg-slate-900 bg-orange-300 text-orange-700 dark:text-blue-200 my-0 mx-auto md:p-6 p-3 flex flex-col gap-10">
+      <div class="input flex flex-col gap-5">
+        <div class="md:flex md:flex-row flex-col justify-between items-center">
+          <label for="pomodoro-time" class="block md:mr-5 mb-1">Round Time:</label>
+          <select name="time" id="pomodoro-time"
+            class="outline-none block md:w-3/5 w-full bg-inherit border dark:border-slate-200 border-orange-900 p-1 font-semibold dark:text-white text-orange-800">
+            <option class="select-option  dark:bg-slate-500 bg-orange-200 font-semibold" value="25" selected>25:00</option>
+            <option class="select-option  dark:bg-slate-500 bg-orange-200 font-semibold" value="40">40:00</option>
+            <option class="select-option dark:bg-slate-500 bg-orange-200 font-semibold" value="60">60:00</option>
+          </select>
+        </div>
+        <div class="md:flex md:flex-row flex-col justify-between items-center">
+          <label for="rest-time" class="block md:mr-5 mb-1">Rest Time:</label>
+          <select name="rest" id="rest-time"
+            class="outline-none block md:w-3/5 w-full bg-inherit border dark:border-slate-200 border-orange-900 p-1 font-semibold dark:text-white text-orange-800">
+            <option class="select-option dark:bg-slate-500 bg-orange-200 font-semibold" value="5" selected>5:00</option>
+            <option class="select-option dark:bg-slate-500 bg-orange-200 font-semibold" value="10">10:00</option>
+            <option class="select-option dark:bg-slate-500 bg-orange-200 font-semibold" value="15">15:00</option>
+          </select>
+        </div>
+        <div class="md:flex md:flex-row flex-col justify-between items-center">
+          <label for="rounds" class="block md:mr-5 mb-1">Rounds:</label>
+          <select name="rounds" id="rounds"
+            class="outline-none block md:w-3/5 w-full bg-inherit border dark:border-slate-200 border-orange-900 p-1 font-semibold dark:text-white text-orange-800">
+            <option class="select-option dark:bg-slate-500 bg-orange-200 font-semibold" value="1" selected>1</option>
+            <option class="select-option dark:bg-slate-500 bg-orange-200 font-semibold" value="2">2</option>
+            <option class="select-option dark:bg-slate-500 bg-orange-200 font-semibold" value="3">3</option>
+            <option class="select-option dark:bg-slate-500 bg-orange-200 font-semibold" value="4">4</option>
+          </select>
+        </div>
+      </div>
+      <div class="flex justify-center items-center">
+        <button type="button"
+          class="start-btn py-2 px-5 md:w-1/2 w-full dark:bg-slate-800 dar:hover:bg-slate-700 bg-orange-100 hover:bg-orange-50 transition-colors text-lg font-medium tracking-wider">Start</button>
+      </div>
     </div>
   </section>
 
-  <div class="bg-sounds">
-    <div class="bg-sound">
-      <div class="keyboard img-container">
-        <img src="./Assests/keyboard.png" alt="keyboard">
+  <div
+    class="bg-sounds dark:bg-slate-900 dark:text-blue-200 bg-orange-300 text-orange-700 p-6 flex flex-wrap justify-between items-start gap-3 relative my-0 mx-auto mt-20 max-w-4xl">
+    <div class="bg-sound w-24 h-24 flex flex-col justify-center items-center p-2">
+      <div class="keyboard cursor-pointer p-2 transition-all">
+        <i class="fa-regular fa-keyboard text-6xl"></i>
       </div>
-      <input type="range" name="keyboard-volume" id="keyboard" min="0" max="0.9" value="0.3" step="0.1">
+      <input class="w-16 block dark:accent-slate-400 accent-orange-400 border-none outline-none" type="range" name="keyboard-volume" id="keyboard" min="0" max="0.9" value="0.3"
+        step="0.1">
     </div>
-    <div class="bg-sound">
-      <div class="wind img-container">
-        <img src="./Assests/wind.png" alt="wind">
+    <div class="bg-sound w-24 h-24 flex flex-col justify-center items-center p-2">
+      <div class="wind cursor-pointer mb-2 p-2 transition-all">
+        <i class="fa-solid fa-wind text-6xl"></i>
       </div>
-      <input type="range" name="wind-volume" id="wind" min="0" max="0.9" value="0.3" step="0.1">
+      <input class="w-16 block dark:accent-slate-400 accent-orange-400 border-none outline-none" type="range" name="wind-volume" id="wind" min="0" max="0.9" value="0.3" step="0.1">
     </div>
-    <div class="bg-sound">
-      <div class="fire img-container">
-        <img src="./Assests/fire.png" alt="fire">
+    <div class="bg-sound w-24 h-24 flex flex-col justify-center items-center p-2">
+      <div class="fire cursor-pointer mb-2 p-2 transition-all">
+        <i class="fa-solid fa-fire text-6xl"></i>
       </div>
-      <input type="range" name="fire-volume" id="fire" min="0" max="0.9" value="0.3" step="0.1">
+      <input class="w-16 block dark:accent-slate-400 accent-orange-400 border-none outline-none" type="range" name="fire-volume" id="fire" min="0" max="0.9" value="0.3" step="0.1">
     </div>
-    <div class="bg-sound">
-      <div class="forest img-container">
-        <img src="./Assests/forest.png" alt="forest">
+    <div class="bg-sound w-24 h-24 flex flex-col justify-center items-center p-2">
+      <div class="forest cursor-pointer mb-2 p-2 transition-all">
+        <i class="fa-solid fa-dove text-6xl"></i>
       </div>
-      <input type="range" name="forest-volume" id="forest" min="0" max="0.9" value="0.3" step="0.1">
+      <input class="w-16 block dark:accent-slate-400 accent-orange-400 border-none outline-none" type="range" name="forest-volume" id="forest" min="0" max="0.9" value="0.3" step="0.1">
     </div>
-    <div class="bg-sound">
-      <div class="radio-static img-container">
-        <img src="./Assests/radio.png" alt="radio-static">
+    <div class="bg-sound w-24 h-24 flex flex-col justify-center items-center p-2">
+      <div class="radio-static cursor-pointer mb-2 p-2 transition-all">
+        <i class="fa-solid fa-radio text-6xl"></i>
       </div>
-      <input type="range" name="static-volume" id="radio-static" min="0" max="0.9" value="0.3" step="0.1">
+      <input class="w-16 block dark:accent-slate-400 accent-orange-400 border-none outline-none" type="range" name="static-volume" id="radio-static" min="0" max="0.9" value="0.3"
+        step="0.1">
     </div>
-    <div class="bg-sound">
-      <div class="public-place img-container">
-        <img src="./Assests/opinions.png" alt="public-place">
+    <div class="bg-sound w-24 h-24 flex flex-col justify-center items-center p-2">
+      <div class="public-place cursor-pointer mb-2 p-2 transition-all">
+        <i class="fa-solid fa-cloud-bolt text-6xl"></i>
       </div>
-      <input type="range" name="public-volume" id="public-place" min="0" max="0.9" value="0.3" step="0.1">
+      <input class="w-16 block dark:accent-slate-400 accent-orange-400 border-none outline-none" type="range" name="public-volume" id="public-place" min="0" max="0.9" value="0.3"
+        step="0.1">
     </div>
-    <p class="mute-message">Mute</p>
+    <p class="mute-message hidden absolute right-1 bottom-0 text-sm">Mute</p>
   </div>
-  <footer>
-    <div class="footer-div">Made with⚡by <a href="https://twitter.com/muditwt" target="_blank">Mudit</a></div>
+
+  <footer class="dark:text-blue-100 block w-full text-center mt-2 text-lg">
+    <div class="w-full">Made ❤️ by <a class="inline-block font-medium hover:text-orange-900" href="https://twitter.com/muditwt" target="_blank">Mudit</a></div>
   </footer>
+
   <script src="./index.js"></script>
+  <script src="./theme.js"></script>
 </body>
 
 </html>
