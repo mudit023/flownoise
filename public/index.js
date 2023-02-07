@@ -17,19 +17,19 @@ let resetFlag = false;
 let muteSoundFlag = false;
 
 // Sounds Path
-const nextRoundSound = "../Assets/sounds/next-round.mp3";
-const finalRoundSound = "../Assets/sounds/final-round.mp3";
-const taskDoneSound = "../Assets/sounds/task-done.mp3";
-const restStartSound = "../Assets/sounds/rest-start.mp3";
-const bodyCareSound = "../Assets/sounds/body-care.mp3";
+const nextRoundSound = "./Assets/sounds/next-round.mp3";
+const finalRoundSound = "./Assets/sounds/final-round.mp3";
+const taskDoneSound = "./Assets/sounds/task-done.mp3";
+const restStartSound = "./Assets/sounds/rest-start.mp3";
+const bodyCareSound = "./Assets/sounds/body-care.mp3";
 
-const keyboardSoundPath = "../Assets/sounds/bgSounds/keyboard-white-noise.mp3";
-const windSoundPath = "../Assets/sounds/bgSounds/wind-white-noise.mp3";
-const forestSoundPath = "../Assets/sounds/bgSounds/forest-white-noise.mp3";
+const keyboardSoundPath = "./Assets/sounds/bgSounds/keyboard-white-noise.mp3";
+const windSoundPath = "./Assets/sounds/bgSounds/wind-white-noise.mp3";
+const forestSoundPath = "./Assets/sounds/bgSounds/forest-white-noise.mp3";
 const publicPlaceSoundPath =
   "../Assets/sounds/bgSounds/public-place-white-noise.mp3";
-const fireSoundPath = "../Assets/sounds/bgSounds/fire-white-noise.mp3";
-const staticSoundPath = "../Assets/sounds/bgSounds/static-white-noise.mp3";
+const fireSoundPath = "./Assets/sounds/bgSounds/fire-white-noise.mp3";
+const staticSoundPath = "./Assets/sounds/bgSounds/static-white-noise.mp3";
 
 const startButton = document.querySelector(".start-btn");
 const resetButton = document.querySelector(".reset-btn");
@@ -314,7 +314,7 @@ publicPlaceVolumeBtn.addEventListener("change", () => {
 
 // *********************** Notification *******************************
 const notificationGenerator = (title) => {
-  const logo = "../Assets/efficiency.png";
+  const logo = "./Assets/efficiency.png";
   const notification = new Notification("Flownoise", {
     body: title,
     icon: logo,
