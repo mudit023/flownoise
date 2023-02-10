@@ -27,7 +27,7 @@ const keyboardSoundPath = "./Assets/sounds/bgSounds/keyboard-white-noise.mp3";
 const windSoundPath = "./Assets/sounds/bgSounds/wind-white-noise.mp3";
 const forestSoundPath = "./Assets/sounds/bgSounds/forest-white-noise.mp3";
 const publicPlaceSoundPath =
-  "../Assets/sounds/bgSounds/public-place-white-noise.mp3";
+  "./Assets/sounds/bgSounds/public-place-white-noise.mp3";
 const fireSoundPath = "./Assets/sounds/bgSounds/fire-white-noise.mp3";
 const staticSoundPath = "./Assets/sounds/bgSounds/static-white-noise.mp3";
 

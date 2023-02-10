@@ -11,9 +11,9 @@
   <title id="title">Flownoise</title>
 </head>
 
-<body class=" dark:bg-slate-800 bg-yellow-100 font-sans md:text-2xl text-xl md:px-10 px-3 h-full">
+<body class=" dark:bg-slate-800 bg-yellow-100 transition-colors ease-in-out duration-500 delay-50 font-sans md:text-2xl text-xl md:px-10 px-3 h-full">
 
-  <nav class="flex justify-between max-w-7xl mt-12  mx-auto md:text-5xl text-3xl font-semibold">
+  <nav class="flex justify-between max-w-7xl mt-12  mx-auto md:text-5xl text-3xl font-semibold transition-colors ease-in-out duration-500 delay-50">
     <div class="logo flex items-center justify-between">
       <div class="logo-img mr-2">
         <i class="fa-solid fa-gear dark:text-slate-300 text-orange-900"></i>
@@ -38,7 +38,7 @@
 
   <section id="function" class="text-4xl max-w-2xl my-0 mx-auto mt-20">
 
-    <div class="display dark:bg-slate-900 bg-orange-300 dark:text-blue-200 text-orange-700 my-0 mx-auto md:p-6 p-3 flex-col items-center gap-5 hidden">
+    <div class="display dark:bg-slate-900 bg-orange-300 dark:text-blue-200 text-orange-700 my-0 mx-auto md:p-6 p-3 flex-col items-center gap-5 transition-colors ease-in-out duration-500 delay-50 hidden">
       <div class="pomodoro-time md:text-8xl text-6xl text-center font-medium dark:text-slate-500 text-orange-800">00:00</div>
       <div class="rest-rounds  flex justify-evenly w-full">
         <div class="flex flex-col items-center">
@@ -52,13 +52,13 @@
       </div>
       <div class="w-full flex justify-center items-center mt-5">
         <button type="button"
-          class="reset-btn py-2 px-5 dark:bg-slate-800 bg-orange-100 hover:bg-orange-50 dark:hover:bg-slate-700 transition-colors text-lg font-medium tracking-wider md-w-1/2 w-full">Reset</button>
+          class="reset-btn py-2 px-5 dark:bg-slate-800 bg-orange-100 hover:bg-orange-50 dark:hover:bg-slate-700 text-lg font-medium tracking-wider md-w-1/2 w-full transition-colors ease-in-out duration-450 delay-20">Reset</button>
       </div>
     </div>
 
     <p class="on-complete hidden dark:text-slate-200 text-orange-700">Task Done!</p>
 
-    <div class="form dark:bg-slate-900 bg-orange-300 text-orange-700 dark:text-blue-200 my-0 mx-auto md:p-6 p-3 flex flex-col gap-10">
+    <div class="form dark:bg-slate-900 bg-orange-300 text-orange-700 dark:text-blue-200 my-0 mx-auto md:p-6 p-3 flex flex-col gap-10 transition-colors ease-in-out duration-500 delay-50">
       <div class="input flex flex-col gap-5">
         <div class="md:flex md:flex-row flex-col justify-between items-center">
           <label for="pomodoro-time" class="block md:mr-5 mb-1">Round Time:</label>
@@ -91,48 +91,72 @@
       </div>
       <div class="flex justify-center items-center">
         <button type="button"
-          class="start-btn py-2 px-5 md:w-1/2 w-full dark:bg-slate-800 dar:hover:bg-slate-700 bg-orange-100 hover:bg-orange-50 transition-colors text-lg font-medium tracking-wider">Start</button>
+          class="start-btn py-2 px-5 w-full dark:bg-slate-800 dark:hover:bg-slate-700 bg-orange-100 hover:bg-orange-50 text-lg font-medium tracking-wider transition-colors ease-in-out duration-450 delay-20">Start</button>
       </div>
     </div>
   </section>
 
   <div
-    class="bg-sounds dark:bg-slate-900 dark:text-blue-200 bg-orange-300 text-orange-700 p-6 flex flex-wrap justify-between items-start gap-3 relative my-0 mx-auto mt-20 max-w-4xl">
+    class="bg-sounds dark:bg-slate-900 dark:text-blue-200 bg-orange-300 text-orange-700 p-6 flex flex-wrap justify-between items-start gap-3 relative my-0 mx-auto mt-20 max-w-4xl transition-colors ease-in-out duration-500 delay-10">
     <div class="bg-sound w-24 h-24 flex flex-col justify-center items-center p-2">
-      <div class="keyboard cursor-pointer p-2 transition-all">
-        <i class="fa-regular fa-keyboard text-6xl"></i>
+      <div class="space-x-3 space-y-3">
+        <div class="relative before:z-10 before:absolute before:left-1/2 before:-top-3 before:w-max before:max-w-xs before:-translate-x-1/2 before:-translate-y-full before:rounded-lg before:bg-gray-700 before:px-2 before:py-1.5 before:text-white before:invisible before:content-[attr(data-tip)] after:z-10 after:absolute after:left-1/2 after:-top-3 after:h-0 after:w-0 after:-translate-x-1/2 after:border-8 after:border-t-gray-700 after:border-l-transparent after:border-b-transparent after:border-r-transparent after:invisible hover:before:visible hover:after:visible" data-tip="Typing Sound">
+          <div class="keyboard cursor-pointer p-2 transition-all">
+            <i class="fa-regular fa-keyboard text-6xl"></i>
+          </div>
+        </div>
       </div>
       <input class="w-16 block dark:accent-slate-400 accent-orange-400 border-none outline-none" type="range" name="keyboard-volume" id="keyboard" min="0" max="0.9" value="0.3"
         step="0.1">
     </div>
     <div class="bg-sound w-24 h-24 flex flex-col justify-center items-center p-2">
-      <div class="wind cursor-pointer mb-2 p-2 transition-all">
-        <i class="fa-solid fa-wind text-6xl"></i>
+      <div class="space-x-3 space-y-3">
+        <div class="relative before:z-10 before:absolute before:left-1/2 before:-top-3 before:w-max before:max-w-xs before:-translate-x-1/2 before:-translate-y-full before:rounded-lg before:bg-gray-700 before:px-2 before:py-1.5 before:text-white before:invisible before:content-[attr(data-tip)] after:z-10 after:absolute after:left-1/2 after:-top-3 after:h-0 after:w-0 after:-translate-x-1/2 after:border-8 after:border-t-gray-700 after:border-l-transparent after:border-b-transparent after:border-r-transparent after:invisible hover:before:visible hover:after:visible" data-tip="Gushing Winds Sound">
+          <div class="wind cursor-pointer mb-2 p-2 transition-all">
+            <i class="fa-solid fa-wind text-6xl"></i>
+          </div>
+        </div>
       </div>
       <input class="w-16 block dark:accent-slate-400 accent-orange-400 border-none outline-none" type="range" name="wind-volume" id="wind" min="0" max="0.9" value="0.3" step="0.1">
     </div>
     <div class="bg-sound w-24 h-24 flex flex-col justify-center items-center p-2">
-      <div class="fire cursor-pointer mb-2 p-2 transition-all">
-        <i class="fa-solid fa-fire text-6xl"></i>
+      <div class="space-x-3 space-y-3">
+        <div class="relative before:z-10 before:absolute before:left-1/2 before:-top-3 before:w-max before:max-w-xs before:-translate-x-1/2 before:-translate-y-full before:rounded-lg before:bg-gray-700 before:px-2 before:py-1.5 before:text-white before:invisible before:content-[attr(data-tip)] after:z-10 after:absolute after:left-1/2 after:-top-3 after:h-0 after:w-0 after:-translate-x-1/2 after:border-8 after:border-t-gray-700 after:border-l-transparent after:border-b-transparent after:border-r-transparent after:invisible hover:before:visible hover:after:visible" data-tip="Fireplace Sound">
+          <div class="fire cursor-pointer mb-2 p-2 transition-all">
+            <i class="fa-solid fa-fire text-6xl"></i>
+          </div>
+        </div>
       </div>
       <input class="w-16 block dark:accent-slate-400 accent-orange-400 border-none outline-none" type="range" name="fire-volume" id="fire" min="0" max="0.9" value="0.3" step="0.1">
     </div>
     <div class="bg-sound w-24 h-24 flex flex-col justify-center items-center p-2">
-      <div class="forest cursor-pointer mb-2 p-2 transition-all">
-        <i class="fa-solid fa-dove text-6xl"></i>
+      <div class="space-x-3 space-y-3">
+        <div class="relative before:z-10 before:absolute before:left-1/2 before:-top-3 before:w-max before:max-w-xs before:-translate-x-1/2 before:-translate-y-full before:rounded-lg before:bg-gray-700 before:px-2 before:py-1.5 before:text-white before:invisible before:content-[attr(data-tip)] after:z-10 after:absolute after:left-1/2 after:-top-3 after:h-0 after:w-0 after:-translate-x-1/2 after:border-8 after:border-t-gray-700 after:border-l-transparent after:border-b-transparent after:border-r-transparent after:invisible hover:before:visible hover:after:visible" data-tip="Birds & Insects Sound">
+          <div class="forest cursor-pointer mb-2 p-2 transition-all">
+            <i class="fa-solid fa-dove text-6xl"></i>
+          </div>
+        </div>
       </div>
       <input class="w-16 block dark:accent-slate-400 accent-orange-400 border-none outline-none" type="range" name="forest-volume" id="forest" min="0" max="0.9" value="0.3" step="0.1">
     </div>
     <div class="bg-sound w-24 h-24 flex flex-col justify-center items-center p-2">
-      <div class="radio-static cursor-pointer mb-2 p-2 transition-all">
-        <i class="fa-solid fa-radio text-6xl"></i>
+      <div class="space-x-3 space-y-3">
+        <div class="relative before:z-10 before:absolute before:left-1/2 before:-top-3 before:w-max before:max-w-xs before:-translate-x-1/2 before:-translate-y-full before:rounded-lg before:bg-gray-700 before:px-2 before:py-1.5 before:text-white before:invisible before:content-[attr(data-tip)] after:z-10 after:absolute after:left-1/2 after:-top-3 after:h-0 after:w-0 after:-translate-x-1/2 after:border-8 after:border-t-gray-700 after:border-l-transparent after:border-b-transparent after:border-r-transparent after:invisible hover:before:visible hover:after:visible" data-tip="Static Sound">
+          <div class="radio-static cursor-pointer mb-2 p-2 transition-all">
+            <i class="fa-solid fa-radio text-6xl"></i>
+          </div>
+        </div>
       </div>
       <input class="w-16 block dark:accent-slate-400 accent-orange-400 border-none outline-none" type="range" name="static-volume" id="radio-static" min="0" max="0.9" value="0.3"
         step="0.1">
     </div>
     <div class="bg-sound w-24 h-24 flex flex-col justify-center items-center p-2">
-      <div class="public-place cursor-pointer mb-2 p-2 transition-all">
-        <i class="fa-solid fa-cloud-bolt text-6xl"></i>
+      <div class="space-x-3 space-y-3">
+        <div class="relative before:z-10 before:absolute before:left-1/2 before:-top-3 before:w-max before:max-w-xs before:-translate-x-1/2 before:-translate-y-full before:rounded-lg before:bg-gray-700 before:px-2 before:py-1.5 before:text-white before:invisible before:content-[attr(data-tip)] after:z-10 after:absolute after:left-1/2 after:-top-3 after:h-0 after:w-0 after:-translate-x-1/2 after:border-8 after:border-t-gray-700 after:border-l-transparent after:border-b-transparent after:border-r-transparent after:invisible hover:before:visible hover:after:visible" data-tip="Rain Sound">
+          <div class="public-place cursor-pointer mb-2 p-2 transition-all">
+            <i class="fa-solid fa-cloud-bolt text-6xl"></i>
+          </div>
+        </div>
       </div>
       <input class="w-16 block dark:accent-slate-400 accent-orange-400 border-none outline-none" type="range" name="public-volume" id="public-place" min="0" max="0.9" value="0.3"
         step="0.1">
@@ -140,8 +164,8 @@
     <p class="mute-message hidden absolute right-1 bottom-0 text-sm">Mute</p>
   </div>
 
-  <footer class="dark:text-blue-100 block w-full text-center mt-2 text-lg">
-    <div class="w-full">Made ❤️ by <a class="inline-block font-medium hover:text-orange-900" href="https://twitter.com/muditwt" target="_blank">Mudit</a></div>
+  <footer class="dark:text-blue-100 block w-full text-center mt-2 text-lg transition-colors ease-in-out duration-500 delay-20">
+    <div class="w-full">Made ❤️ by <a class="inline-block font-medium hover:text-orange-900 dark:hover:text-blue-400" href="https://twitter.com/muditwt" target="_blank">Mudit</a></div>
   </footer>
 
   <script src="./index.js"></script>
