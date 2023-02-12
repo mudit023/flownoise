@@ -1,5 +1,5 @@
 # [Flownoise](https://flownoise.vercel.app/)
-![flownoise-banner](./Assests/flownoise%20banner.png)
+![flownoise-banner](./Assets/Screenshots/Flownoise.gif)
 
 ### Deployment: [flownoise.vercel.app](https://flownoise.vercel.app/)
 ---
